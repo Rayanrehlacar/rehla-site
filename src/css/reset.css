@@ -1,0 +1,134 @@
+/* src: url('../../public/fonts/Tajawal/Tajawal-Medium.ttf'); */
+p,body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Tajawal; 
+    color: var(--blue); 
+}
+*{
+    font-family: Tajawal; 
+}
+a{
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.offer_img img {
+    max-width: 80%;
+    display: block;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0px;
+}
+* {
+    box-sizing: border-box;
+}
+.pt100,.ptb100{
+	padding-top: var(--ptb100);
+}
+.pb100,.ptb100{
+	padding-bottom: var(--ptb100);
+}
+.pt100,.ptb120{
+    padding-top: var(--ptb120);
+}
+.pb100,.ptb120{
+    padding-bottom: var(--ptb120);
+}
+.pt60,.ptb60{
+	padding-top:var(--ptb60);
+}
+.pb60,.ptb60{
+	padding-bottom:var(--ptb60);
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-Black.ttf);
+    font-weight: 900;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-ExtraBold.ttf);
+    font-weight: 800;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-Bold.ttf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-Regular.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: Tajawal;
+    src: url(../../public/fonts/Tajawal/Tajawal-ExtraLight.ttf);
+    font-weight: 200;
+}
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background:var(--blue); 
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background:var(--sky_blue); 
+  border-radius: 8px;
+}
+::selection{
+	background-color: var(--sky_blue);
+	color: var(--white);
+}
+::placeholder {
+    color: rgba(0, 11, 51, 50%);
+}
+:focus {
+    outline: unset;
+    border: unset;
+}
+:root {
+    --white: #FFFFFF;
+    --sky_blue:#3DA0D8;
+    --light_blue:#94A3B8;
+    --blue: #000B33;
+    --black: #181D2C;
+    --black1: #212121;
+    --bg_blue: #222D61;
+    --white: #FFFFFF;
+    --light:  #FBFDFE;
+    --ptb100: 100px;
+    --ptb120: 120px;
+    --ptb90: 90px;
+    --ptb80: 80px;
+    --ptb60: 60px;
+    --fs70: 70px;
+    --fs60: 60px;
+    --fs48: 48px;
+    --fs40: 40px;
+    --fs30: 30px;
+    --fs20: 20px;
+    --fs18: 18px;
+    --fs16: 16px;
+    --fs14: 14px;
+}
