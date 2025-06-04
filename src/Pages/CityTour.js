@@ -6,7 +6,7 @@ import {GetTourismExpertsByAreaId, GetTourismProgramsByAreaId} from '../services
 import i18n from '../i18n'; 
 
 
-function CityTourAlUla() {
+function CityTour() {
    const location = useLocation();
    const navigate = useNavigate();
    const [toursPrograms, setToursPrograms] = useState([]);
@@ -15,6 +15,7 @@ function CityTourAlUla() {
    const [isTourProgramVisible,  setIsTourProgramVisible] = useState(false); // State to toggle visibility
    const [queryParams, setQueryParams] = useState({
       TouristAreaId: null,
+      TouristAreaName: null,
       Page: null,
     });
 
@@ -22,13 +23,14 @@ function CityTourAlUla() {
       const searchParams = new URLSearchParams(location.search);
       return {
         TouristAreaId: searchParams.get('TA'),
+        TouristAreaName: searchParams.get('Name'),
         Page: searchParams.get('Page')
       };
     };
 
     useEffect(() => {
-      const { TouristAreaId, Page } = getQueryParams();
-      setQueryParams({ TouristAreaId, Page });
+      const { TouristAreaId, TouristAreaName,Page } = getQueryParams();
+      setQueryParams({ TouristAreaId, TouristAreaName,Page });
   
       if (TouristAreaId && Page !== null) {
          fetchTourPrograms(TouristAreaId, Page);
@@ -62,12 +64,12 @@ function CityTourAlUla() {
         <section className="banners" style={{backgroundImage: `url(${'../../images/banners_bg.webp'})`}}>
       <div className="container">
          <div className="banner_head">
-            <h1>City Tour Al-Ula</h1>
+            <h1>City Tour {queryParams.TouristAreaName}</h1>
             <p>An enim nullam tempor sapien gravida donec enim ipsum <br/> porta justo  congue purus pretium ligula </p>
          </div>
          <div className="bredcrub">
             <a href="index.html" target="_self"> Home </a><span> <img src="images/arrow.png" alt="arrow"/></span> 
-            <p>City Tour Al-Ula</p>
+            <p>City Tour {queryParams.TouristAreaName}</p>
          </div>
       </div>
    </section>
@@ -89,7 +91,7 @@ function CityTourAlUla() {
           </div>
          ) :toursGuides.length > 0 ? (
             toursGuides.map((tour,index) => (
-                 <div className="city_tour_box" key={index} onClick={() => navigate(`/city-tour-al-ula-single?Id=${tour.Id}&TA=${queryParams.TouristAreaId}`)}>
+                 <div className="city_tour_box" key={index} onClick={() => navigate(`/city-tour-single?Id=${tour.Id}&TA=${queryParams.TouristAreaId}&Name=${encodeURIComponent(queryParams.TouristAreaName)}`)}>
                  <div className="customer_grid">
                     <div className="tourism_box">
                        <img src="{tour?.ProfilePhoto}" alt="client_img" />
@@ -316,4 +318,4 @@ function CityTourAlUla() {
   )
 }
 
-export default CityTourAlUla
+export default CityTour

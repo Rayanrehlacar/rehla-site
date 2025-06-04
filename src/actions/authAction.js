@@ -24,6 +24,7 @@ export const setInitialAuthState = (navigate) => async (dispatch) => {
     }
   
   export const signInAction = (formData, navigate) => async (dispatch) => {
+  
     try {
         dispatch(setIsLoading(true))
       const response = await Api.signIn(formData);
@@ -114,6 +115,26 @@ export const setInitialAuthState = (navigate) => async (dispatch) => {
     }
   };
 
+  // export const getProfileAction = () => async (dispatch) => {
+  //   try {
+  //     dispatch(setIsLoading(true));
+  //     const response = await Api.getUserDetails();
+  //     const { error, data } = response;
+
+  //     if (error) {
+  //       toast.error(response?.error);
+  //     } else {
+  //       console.log("Fetched user details: ", data); // Log response
+  //       dispatch(setUserDetails(data)); // ← this must update state
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching profile:", error);
+  //   } finally {
+  //     dispatch(setIsLoading(false));
+  //   }
+  // };
+
+
   export const getProfileAction=()=>async(dispatch)=>{
     try{
       dispatch(setIsLoading(true));
@@ -125,11 +146,14 @@ export const setInitialAuthState = (navigate) => async (dispatch) => {
         toast.error(response?.error)
         dispatch(setIsLoading(false))
       } else {
-
+        dispatch(setUserDetails(data)); // this must update state
       }
     }
     catch(error){
-
+      console.error("Error fetching profile:", error);
+    }
+    finally {
+      dispatch(setIsLoading(false));
     }
   }
   export const updatePasswordAction=(formData,navigate)=>async(dispatch)=>{
@@ -158,9 +182,21 @@ export const setInitialAuthState = (navigate) => async (dispatch) => {
 
     }
   }
-export const isSession=()=>{
-   return !!sessionStorage.getItem("profile")?.accessToken
-}
+// export const isSession=()=>{
+//    return !!sessionStorage.getItem("profile")?.accessToken
+// }
+
+  export const isSession = () => {
+    const profileStr = sessionStorage.getItem("profile");
+    if (!profileStr) return false;
+
+    try {
+      const profile = JSON.parse(profileStr);
+      return !!profile?.accessToken;
+    } catch {
+      return false;
+    }
+  };
   export const updateProfileAction=(formData)=>async(dispatch)=>{
     try{
     
@@ -173,17 +209,16 @@ export const isSession=()=>{
         toast.error(response?.error)
         dispatch(setIsLoading(false))
       } else {
-      toast.success(data?.metas?.message)
-      dispatch(setUserDetails(data?.model))
-      dispatch(setIsLoading(false))
-      if(isSession()){
-        const data= JSON.parse(sessionStorage.getItem("profile"))
-        sessionStorage.setItem({...data,user:data?.model})
-      }
-      else{
-        const data= JSON.parse(localStorage.getItem("profile"))
-        localStorage.setItem({...data,user:data?.model})
-      }
+        toast.success(data?.metas?.message)
+        dispatch(setUserDetails(data?.model))
+        dispatch(setIsLoading(false))
+        if (isSession()) {
+          const sessionData = JSON.parse(sessionStorage.getItem("profile"));
+          sessionStorage.setItem("profile", JSON.stringify({ ...sessionData, user: data?.model }));
+        } else {
+          const localData = JSON.parse(localStorage.getItem("profile"));
+          localStorage.setItem("profile", JSON.stringify({ ...localData, user: data?.model }));
+        }
     
       }
     }
@@ -203,14 +238,26 @@ export const isSession=()=>{
         toast.error(response?.error)
         dispatch(setIsUploading(false))
       } else {
-        dispatch(setUserDetails({...data?.model,ProfilePhoto:process.env.REACT_APP_BASE_URL+data?.model?.ProfilePhoto}));
+        dispatch(setUserDetails({...data?.model,ProfilePhoto: data?.model?.ProfilePhoto}));
         dispatch(setIsUploading(false))
+        if (isSession()) {
+          const sessionData = JSON.parse(sessionStorage.getItem("profile"));
+          sessionStorage.setItem("profile", JSON.stringify({ ...sessionData, user: data?.model }));
+        } else {
+          const localData = JSON.parse(localStorage.getItem("profile"));
+          localStorage.setItem("profile", JSON.stringify({ ...localData, user: data?.model }));
+        }
       }
     }
     catch(error){
       console.log(error)
+    } finally {
+      dispatch(setIsUploading(false));
     }
-  };
+   };
+
+
+
   
   export const verifyPhoneAction=(formData,navigate)=>async(dispatch)=>{
    try{

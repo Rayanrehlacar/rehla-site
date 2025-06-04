@@ -205,7 +205,7 @@ i18n.use(initReactI18next).init({
             ReceiverName: "Receiver name",
             ReceiverId: "Receiver ID",
             Notes: "Notes",
-            preBookingNow: "Prebooking Now",
+            sendParcelNow: "Send Parcel",
         },
 
         //AboutUs Page

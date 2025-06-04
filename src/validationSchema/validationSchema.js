@@ -99,10 +99,10 @@ export const prebookingSchema = Yup.object().shape({
 export const sendParcelSchema = Yup.object().shape({
   SourceCity: Yup.string().required("Sender Location is Required"),
   DestinationCity: Yup.string().required("Receiver Location is Required"),
-  SenderPhone: Yup.number().required("Sender phone is Required"),
+  SenderPhone: Yup.string().matches(phoneRegExp, "Sender Phone is not valid").required("Sender Phone is required"),
   SenderName: Yup.string().required("Sender name is Required"),
   SenderId: Yup.string().required("Sender ID is Required"),
-  ReceiverPhone: Yup.number().required("Receiver phone"),
+  ReceiverPhone: Yup.string().matches(phoneRegExp, "Receiver Phone is not valid").required("Receiver Phone is required"),
   ReceiverName: Yup.string().required("Receiver name is Required"),
   ReceiverId: Yup.string().required("Receiver ID is Required"),
 })

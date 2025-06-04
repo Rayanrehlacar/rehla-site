@@ -7,10 +7,12 @@ import i18n from '../i18n';
 import { useNavigate } from 'react-router-dom';
 
 
-function CityTourAlUlaSingle() {
+function CityTourSingle() {
    const location = useLocation();
+   const navigate = useNavigate();
    const [queryParams, setQueryParams] = useState({
       TouristAreaId: null,
+      TouristAreaName: null,
       Id: null,
    });
    const [loading, setLoading] = useState(true);
@@ -20,18 +22,25 @@ function CityTourAlUlaSingle() {
       const searchParams = new URLSearchParams(location.search);
       return {
          TouristAreaId: searchParams.get('TA'),
+         TouristAreaName: searchParams.get('Name'),
          Id: searchParams.get('Id')
       };
    };
 
    useEffect(() => {
-      const { Id, TouristAreaId } = getQueryParams();
-      setQueryParams({ Id, TouristAreaId });
+      // Check login status
+      const isLoggedIn = sessionStorage.getItem('profile');
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+      }
+
+      const { Id, TouristAreaId, TouristAreaName } = getQueryParams();
+      setQueryParams({ Id, TouristAreaId, TouristAreaName });
 
       if (TouristAreaId && Id !== null) {
          fetchTourExpertsDetails(Id, TouristAreaId);
       }
-   }, [i18n.language]);
+   }, [i18n.language,navigate, location]);
 
    const fetchTourExpertsDetails = async (Id, TouristAreaId) => {
       let { data } = await GetTourismExpertDetails({ Id: Id, TouristAreaId: TouristAreaId });
@@ -59,7 +68,7 @@ function CityTourAlUlaSingle() {
    const userId = getNestedProperty(toursDetails, 'UserId', 'UserId not available');
 
    const [selectedRoutes, setSelectedRoutes] = useState([]);
-   const navigate = useNavigate();
+   
    const handleCheckboxChange = (e, item) => {
       if (e.target.checked) {
         setSelectedRoutes((prev) => [...prev, item]);
@@ -92,12 +101,12 @@ function CityTourAlUlaSingle() {
          <section className="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
             <div className="container">
                <div className="banner_head">
-                  <h1>City Tour Al-Ula</h1>
+                  <h1>City Tour {queryParams.TouristAreaName}</h1>
                   <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo  congue purus pretium ligula </p>
                </div>
                <div className="bredcrub">
                   <a href="index.html" target="_self"> Home </a><span> <img src="images/arrow.png" alt="arrow" /></span>
-                  <p>City Tour Al-Ula</p>
+                  <p>City Tour {queryParams.TouristAreaName}</p>
                </div>
             </div>
          </section>
@@ -239,4 +248,4 @@ function CityTourAlUlaSingle() {
    )
 }
 
-export default CityTourAlUlaSingle
+export default CityTourSingle

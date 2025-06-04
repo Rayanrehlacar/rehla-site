@@ -47,7 +47,8 @@ function TourismTours() {
           </div>
           <div className="team_inner tourism_inner pt60">
             {tours.map((tour, key) => (
-              <div className="card_box" key={key} onClick={() => navigate(`/city-tour-al-ula?TA=${tour.Id}&Page=0`)}>
+              <div className="card_box" key={key} onClick={() => navigate(`/city-tour?TA=${tour.Id}&Name=${encodeURIComponent(
+        tour.Name)}&Page=0`)}>
                 <img src={tour?.Image} alt={tour?.Name} />
                 <div className="card_details">
                   <h3>{i18n.language === 'ur' ? tour?.NameLT : tour?.Name}</h3>

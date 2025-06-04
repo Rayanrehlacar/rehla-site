@@ -81,7 +81,7 @@ function Footer() {
           </div>
         </div>
         <div class="whts_icon">
-          <a href="https://wa.me/+966536142224" target="_blank"> <img src="images/whatapp.webp" alt="whatsapp icon" /> </a>
+          <a href="https://wa.me/+966920011455" target="_blank"> <img src="images/whatapp.webp" alt="whatsapp icon" /> </a>
         </div>
         {/* <!-------------|| Script Start ||-----------------> */}
         <script src="js/isotope.pkgd.js"></script>

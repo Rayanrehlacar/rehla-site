@@ -175,6 +175,11 @@ function RegisterTraveler() {
                           <button
                             key={key}
                             type="button"
+                            className={
+                              values.TourismExpertAreas?.split(",").includes(`${tour?.Id}`)
+                                ? "selected"
+                                : ""
+                            }
                             onClick={() => {
                               const selected = values.TourismExpertAreas
                                 ? values.TourismExpertAreas.split(",")
@@ -200,6 +205,11 @@ function RegisterTraveler() {
                           <button
                             key={key}
                             type="button"
+                            className={
+                              values.TourismExpertLanguages?.split(",").includes(`${item?.Id}`)
+                                ? "selected"
+                                : ""
+                            }
                             onClick={() => {
                               const selected = values.TourismExpertLanguages
                                 ? values.TourismExpertLanguages.split(",")

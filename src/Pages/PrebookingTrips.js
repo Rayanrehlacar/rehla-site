@@ -125,7 +125,8 @@ function PrebookingTrips() {
                            <div class="booking_grid">
                               <div class="booking_group">
                                  <label for="StartDateTime">{t('preBookingtrips.startDate')}</label>
-                                 <input type="date" id="StartDateTime" value={values?.StartDateTime} placeholder="please Select Start date" onChange={handleChange} />
+                                 <input type="date" id="StartDateTime" value={values?.StartDateTime} placeholder="please Select Start date" 
+                                 onChange={handleChange} min={new Date().toISOString().split('T')[0]} />
                                  <LocalError touched={touched.StartDateTime} error={errors.StartDateTime} />
 
                               </div>

@@ -110,7 +110,7 @@ function BookTour() {
                      </div>
                      <div class="booking_group">
                         <label for="StartDate">{t('bookTour.startDate')}</label>
-                        <input type="date" name="StartDate" id="StartDate" value={values?.StartDate} placeholder="please enter Kick Off Time"  onChange={handleChange} /> 
+                        <input type="date" name="StartDate" id="StartDate" value={values?.StartDate} placeholder="please enter Kick Off Time"  onChange={handleChange} min={new Date().toISOString().split('T')[0]}/> 
                         <LocalError touched={touched.StartDate} error={errors.StartDate} />
                      </div>
                      <div class="booking_group">

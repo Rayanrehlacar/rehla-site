@@ -29,10 +29,10 @@ import RegisterTraveler from './Pages/RegisterTraveler';
 import Verification from './Pages/Verification';
 import Notifications from './Pages/Notifications';
 import MyRates from './Pages/MyRates';
-import CityTourAlUla from './Pages/CityTourAlUla';
+import CityTour from './Pages/CityTour';
 import MyTrip from './Pages/MyTrip';
 import MyReservation from './Pages/MyReservation';
-import CityTourAlUlaSingle from './Pages/CityTourAlUlaSingle';
+import CityTourSingle from './Pages/CityTourSingle';
 import PrivateRoute from './layout/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import CustomSpinner from './Components/CustomLoader/loader';
@@ -89,8 +89,8 @@ function App() {
           <Route exact path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route exact path="/terms-of-use" element={<TermsOfUse />} />
           <Route exact path="/registration" element={<Registration />} />
-          <Route exact path="/city-tour-al-ula" element={<CityTourAlUla />} />
-          <Route exact path="/city-tour-al-ula-single" element={<CityTourAlUlaSingle />} />
+          <Route exact path="/city-tour" element={<CityTour />} />
+          <Route exact path="/city-tour-single" element={<CityTourSingle />} />
           <Route exact path="/my-send-parcel" element={<MySendParcels/>} />
         </Routes>
       </Suspense>

@@ -168,7 +168,7 @@ function SendParcel() {
 
                            
                         </div>
-                        <button type="submit" class="prebooking_sub">{t('sendParcel.preBookingNow')}</button>
+                        <button type="submit" class="prebooking_sub">{t('sendParcel.sendParcelNow')}</button>
                      </form>
                   )
                   }
