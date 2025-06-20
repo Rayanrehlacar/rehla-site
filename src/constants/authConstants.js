@@ -6,6 +6,7 @@ export const APICONSTANTS = {
     forgotPassPath: ({ PhoneNumber }) => `/forgetPassword?PhoneNumber=${PhoneNumber}`,
     ResendOtpPath: ({ PhoneNumber }) => `/ResendPhoneVerification?phone=${PhoneNumber}`,
     verifyOtp: ({ PhoneNumber, Vcode }) => `/Users/Verify?PhoneNumber=${PhoneNumber}&Vcode=${Vcode}`,
+    verifyEmail: ({ Vcode }) => `/VerifyEmail?vcode=${Vcode}`,
     updatePasswordPath: "verifyOtpAndResetPassword",
     getUserDetailsPath: "/Users/GetUserProfile",
     updateProfilePath: "/updateProfile",

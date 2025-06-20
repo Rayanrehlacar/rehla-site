@@ -52,6 +52,18 @@ export const verifyOtp = async (formData) => {
     return handleApiError(error);
   }
 };
+export const verifyEmail = async (formData) => {
+  try {
+    const res = await authInterceptor.get(APICONSTANTS.verifyEmail(formData), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return { error: null, data: res.data };
+  } catch (error) {
+    return handleApiError(error);
+  }
+};
 export const resendOtp = async (formData) => {
     try {
       const res = await commonInterceptor.get(APICONSTANTS.ResendOtpPath(formData), {

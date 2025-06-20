@@ -251,7 +251,7 @@ i18n.use(initReactI18next).init({
           sitemap: "Site map",
           usefulLinks: "Useful links",
           contactInfo: "Contact Info",
-          address: "455 West Orchard Street Kings Mountain, NC 280867",
+          address: "Itqan Square, Madinah Road- P.O 23215 Kingdom of Saudi Arabia",
           phone: "",
           email: "",
           home: "Home",
@@ -519,7 +519,7 @@ i18n.use(initReactI18next).init({
           usefulLinks: "روابط مفيدة",
           contactInfo: "معلومات الاتصال",
           address:
-            "455 شارع ويست أوركارد، كينغز ماونتن، كارولاينا الشمالية 280867",
+            "ميدان الإتقان، طريق المدينة المنورة - ص.ب. 23215 المملكة العربية السعودية",
           phone: "",
           email: "",
           home: "بيت",

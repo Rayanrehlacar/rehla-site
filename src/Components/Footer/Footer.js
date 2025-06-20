@@ -69,8 +69,8 @@ function Footer() {
               <h4>{t('footer.contactInfo')}</h4>
               <ul className="footer_links">
                 <li><a href="https://www.google.com/maps/search/455+West+Orchard+Street+Kings+Mountain,+NC+280867/@37.442407,-122.170830,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTExMi4wIKXMDSoASAFQAw%3D%3D">{t('footer.address')}</a></li>
-                <li><a href="tel:+088(246)6422710">{t('footer.phone')}</a></li>
-                <li><a href="mailto:example@gmail.com">{t('footer.email')}</a></li>
+                {/* <li><a href="tel:+088(246)6422710">{t('footer.phone')}</a></li>
+                <li><a href="mailto:example@gmail.com">{t('footer.email')}</a></li> */}
               </ul>
             </div>
           </div>
