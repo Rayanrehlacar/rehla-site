@@ -22,7 +22,6 @@ function Verification() {
   const [loadingPhone, setLoadingPhone] = useState(false);
   const [loadingEmail, setLoadingEmail] = useState(false);
 
-
   useEffect(() => {
     const profileData = sessionStorage.getItem("profile");
     if (profileData) {

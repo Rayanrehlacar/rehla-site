@@ -15,11 +15,8 @@ function EditProfile() {
   const { t } = useTranslation();
   const { userDetails, isUploading } = useSelector((state) => state.userStore);
 
- 
-
   const dispatch = useDispatch();
-
-
+  
   const handleSubmitForm = async (values) => {
     await dispatch(updateProfileAction({ ...values, Gender: values?.Gender === "male" }));
   };

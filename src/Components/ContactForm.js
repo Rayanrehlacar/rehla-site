@@ -13,7 +13,6 @@ import "../css/glightbox.css";
 
 function ContactForm() {
   const { t } = useTranslation();
-
   const handleSubmitForm = async (values) => {
     try {
       const res = await ContactUs(values);

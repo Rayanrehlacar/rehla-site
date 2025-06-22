@@ -44,13 +44,13 @@ function CityTour() {
       setLoading(false);
     }
 
-    const fetchTourGuides = async (TouristAreaId, Page) => {
+   const fetchTourGuides = async (TouristAreaId, Page) => {
       let { data } = await GetTourismExpertsByAreaId({ TouristAreaId: TouristAreaId, page: Page });
       setToursGuides(data?.model);
       setLoading(false);
-    }
+   }
 
-    const handleGuideClick = () => {
+   const handleGuideClick = () => {
       setIsTourProgramVisible(false); // Show tour programs when booking button is clicked
    }
 

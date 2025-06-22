@@ -3939,44 +3939,10 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
 
 /* varifaication */
 
-.otp-box {
-  margin-top: 10px;
-  margin-left: 40px;
-}
-.otp-box input {
-  padding: 6px;
-  margin-right: 8px;
-  width: 150px;
-    border: 1px solid rgba(189, 189, 189, 0.25);
-    background-color: var(--white);
-    outline: unset;
-    resize: unset;
-    border-radius: 5px;
-    font-size: var(--fs14);
-    line-height: 20px;
-    font-weight: 400;
-    height: 48px;
-}
-.otp-box button {
-  padding: 6px 12px;
-}
 .error-msg {
   color: red;
   font-size: 14px;
   margin-top: 4px;
-}
-
-.otp-box .submit_otp {
-    background-color: rgba(34, 45, 97, 1);
-    border-radius: 10px;
-    color: var(--white);
-    border: unset;
-    padding: 10px 33px;
-    font-size: var(--fs16);
-    line-height: 24px;
-    font-weight: 700;
-    text-align: center;
-    cursor: pointer;
 }
 
 .loading-msg {

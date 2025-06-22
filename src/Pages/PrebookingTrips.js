@@ -10,8 +10,6 @@ import { GetCarCategories } from '../services/tripService';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-
-
 function PrebookingTrips() {
    const { t } = useTranslation(); 
 

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.43cd0fd9.css",
+    "main.css": "/static/css/main.1bd6394f.css",
     "main.js": "/static/js/main.d85bfc6d.js",
     "static/media/Tajawal-Medium.ttf": "/static/media/Tajawal-Medium.39f6e7909da6851b0fca.ttf",
     "static/media/Tajawal-Light.ttf": "/static/media/Tajawal-Light.0b9c23dd8afee3e6ab60.ttf",
@@ -18,11 +18,11 @@
     "static/media/prev.webp": "/static/media/prev.b32e073e5782e5d513ab.webp",
     "static/media/down-arrow.svg": "/static/media/down-arrow.bb4e89d80767709722f4.svg",
     "static/media/prev.svg": "/static/media/prev.0817bad6e95ee06d13d8.svg",
-    "main.43cd0fd9.css.map": "/static/css/main.43cd0fd9.css.map",
+    "main.1bd6394f.css.map": "/static/css/main.1bd6394f.css.map",
     "main.d85bfc6d.js.map": "/static/js/main.d85bfc6d.js.map"
   },
   "entrypoints": [
-    "static/css/main.43cd0fd9.css",
+    "static/css/main.1bd6394f.css",
     "static/js/main.d85bfc6d.js"
   ]
 }

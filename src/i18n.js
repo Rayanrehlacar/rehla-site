@@ -7,7 +7,7 @@ i18n.use(initReactI18next).init({
   resources: {
     en: {
       translation: {
-        //Header
+        //Header 
         header: {
           home: "Home",
           services: "Services",
