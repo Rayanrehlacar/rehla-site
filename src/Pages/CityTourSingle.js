@@ -6,7 +6,6 @@ import { GetTourismExpertDetails } from '../services/tripService';
 import i18n from '../i18n';
 import { useNavigate } from 'react-router-dom';
 
-
 function CityTourSingle() {
    const location = useLocation();
    const navigate = useNavigate();

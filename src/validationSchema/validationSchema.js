@@ -12,7 +12,7 @@ export const loginSchema = Yup.object().shape({
   Password: Yup.string().required("Enter Your Password Here")
 });
 
-// export const signUpSchema = Yup.object().shape({
+//  export const signUpSchema = Yup.object().shape({
 //   Name: Yup.string().required("Name is Required"),
 //   Email: Yup.string().email("Enter a Valid Email").required("A Valid Email is Required"),
 //   Password: Yup.string().required("Password is required"),

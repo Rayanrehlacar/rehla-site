@@ -3,7 +3,7 @@ import '../css/style.css'
 import '../css/reset.css'
 import '../css/responsive.css'
 import '../css/glightbox.css'
-import '../css/videoModal.css'; 
+import '../css/videoModal.css';
 import { useTranslation } from 'react-i18next';
 
 function AboutRahela() {

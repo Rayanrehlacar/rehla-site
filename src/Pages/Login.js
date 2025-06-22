@@ -21,7 +21,6 @@ function Login() {
    const dispatch= useDispatch()
    const navigate= useNavigate()
    const handleSubmitForm=async(values)=>{
-
      await dispatch(signInAction({...values},navigate))
             // await dispatch(signInAction({...values,PhoneNumber:"+9651143134889",Password:"12345678"}))
    } 

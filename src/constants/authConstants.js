@@ -44,7 +44,7 @@ export const APICONSTANTS = {
     editPreferences : "EditPreferences",
     uploadIdentityImage : "uploadIdentityImage",
     getRehlaNewsDetails : ({id}) => `GetRehlaNewsDetails?id=${id}`,
-  //  addTransaction: "AddTransaction?CardNumber=09537778862901",
+//  addTransaction: "AddTransaction?CardNumber=09537778862901",
     getBanks: "getBanks",
     DriverComment:"RateADriver"
 }
@@ -82,5 +82,4 @@ export const ROUTESCONSTANTS = {
     ADD_BALANCE: "/add-balance",
     ADD_BALANCE_FORM: "/add-balance-form",
     MY_PREFERENCE: "/my-preferences"
-
 }

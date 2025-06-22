@@ -101,6 +101,7 @@ export const getUserDetails = async () => {
       return handleApiError(error);
     }
   };
+  
 export const updateUserDetails = async (formData) => {
     try {
       const res = await authInterceptor.post(APICONSTANTS.updateProfilePath,formData, {

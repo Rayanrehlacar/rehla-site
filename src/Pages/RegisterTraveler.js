@@ -35,7 +35,6 @@ function RegisterTraveler() {
   };
 
   
-
   const handleSubmitForm = async (values, { setSubmitting, setErrors, resetForm }) => {
     try {
       const formData = new FormData();

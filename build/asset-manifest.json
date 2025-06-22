@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1bd6394f.css",
+    "main.js": "/static/js/main.d85bfc6d.js",
+    "static/media/Tajawal-Medium.ttf": "/static/media/Tajawal-Medium.39f6e7909da6851b0fca.ttf",
+    "static/media/Tajawal-Light.ttf": "/static/media/Tajawal-Light.0b9c23dd8afee3e6ab60.ttf",
+    "static/media/Tajawal-Bold.ttf": "/static/media/Tajawal-Bold.5225a40edb511ebac6f5.ttf",
+    "static/media/Tajawal-ExtraBold.ttf": "/static/media/Tajawal-ExtraBold.a6895f8295995503f6b8.ttf",
+    "static/media/Tajawal-Regular.ttf": "/static/media/Tajawal-Regular.e4ac0a5abb7d379e2308.ttf",
+    "static/media/Tajawal-Black.ttf": "/static/media/Tajawal-Black.20bb64985d298963909e.ttf",
+    "static/media/Tajawal-ExtraLight.ttf": "/static/media/Tajawal-ExtraLight.e956a66ca3e47da3b43f.ttf",
+    "static/media/bg.webp": "/static/media/bg.3754a311fe5eb6b2fd25.webp",
+    "static/media/banner-radius-bg.webp": "/static/media/banner-radius-bg.7f4bdc1557eede60fbc1.webp",
+    "static/media/Vector.webp": "/static/media/Vector.7d431b5b0039c96d71f1.webp",
+    "index.html": "/index.html",
+    "static/media/green-right.svg": "/static/media/green-right.d78976498e02ceb12e9b.svg",
+    "static/media/arrow.svg": "/static/media/arrow.d46fcb0558701d9d3857.svg",
+    "static/media/prev.webp": "/static/media/prev.b32e073e5782e5d513ab.webp",
+    "static/media/down-arrow.svg": "/static/media/down-arrow.bb4e89d80767709722f4.svg",
+    "static/media/prev.svg": "/static/media/prev.0817bad6e95ee06d13d8.svg",
+    "main.1bd6394f.css.map": "/static/css/main.1bd6394f.css.map",
+    "main.d85bfc6d.js.map": "/static/js/main.d85bfc6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bd6394f.css",
+    "static/js/main.d85bfc6d.js"
+  ]
+}

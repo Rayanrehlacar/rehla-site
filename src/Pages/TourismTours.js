@@ -4,7 +4,7 @@ import Header from '../Components/Header/Header';
 import '../css/style.css';
 import '../css/reset.css';
 import '../css/responsive.css';
-import '../css/glightbox.css';
+import '../css/glightbox.css'; 
 import { GetTouristAreas } from '../services/tripService';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

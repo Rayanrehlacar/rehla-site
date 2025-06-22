@@ -9,8 +9,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-
-
 function SendParcel() {
    const { t } = useTranslation(); 
    const navigate = useNavigate();

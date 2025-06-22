@@ -29,7 +29,7 @@ import RegisterTraveler from './Pages/RegisterTraveler';
 import Verification from './Pages/Verification';
 import Notifications from './Pages/Notifications';
 import MyRates from './Pages/MyRates';
-import CityTour from './Pages/CityTour';
+import CityTour from './Pages/CityTour'; 
 import MyTrip from './Pages/MyTrip';
 import MyReservation from './Pages/MyReservation';
 import CityTourSingle from './Pages/CityTourSingle';

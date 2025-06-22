@@ -14,7 +14,6 @@ function BookTour() {
    const { t } = useTranslation(); 
    const location = useLocation();
    const { selectedRoutes, userId } = location.state || {};  //  Destructure both together
-
    const [userLocation, setUserLocation] = useState({ lat: null, lng: null });
 
    useEffect(() => {
