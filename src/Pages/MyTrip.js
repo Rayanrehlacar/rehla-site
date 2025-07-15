@@ -69,7 +69,7 @@ function MyTrip() {
                            <h2>Go trip <span> ({item?.UserId}#)</span></h2>
                         </div>
                         <div className="ribben sky">
-                           <span>Underway</span>
+                           <span>{item?.PrebookingAdvanceStatusName}</span>
                         </div>
                         <ul className="trip_list">
                            <li><img src="images/my_trip/list1.png" alt="list1" /><span>{item?.SourceCity}</span></li>

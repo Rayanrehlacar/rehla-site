@@ -23,7 +23,7 @@ function FeatureCourses() {
                   <div class="card_details">
                      <h3>{t('heroSection.Rehla')} - <span>15 SAR</span></h3>
                      <p>{t('heroSection.price')}: <span>15 SAR</span></p>
-                     <a href="javascript:void(0);"><span>{t('heroSection.Chargewallet')}</span></a>
+                     <a href="#/add-balance-form"><span>{t('heroSection.Chargewallet')}</span></a>
                   </div>
                </div>
                 <div class="card_box">
@@ -31,7 +31,7 @@ function FeatureCourses() {
                   <div class="card_details">
                      <h3>{t('heroSection.Rehla')} - <span>50 SAR</span></h3>
                      <p>{t('heroSection.price')}: <span>50 SAR</span></p>
-                     <a href="javascript:void(0);"><span>{t('heroSection.Chargewallet')}</span></a>
+                     <a href="#/add-balance-form"><span>{t('heroSection.Chargewallet')}</span></a>
                   </div>
                </div>
                 <div class="card_box">
@@ -39,7 +39,7 @@ function FeatureCourses() {
                   <div class="card_details">
                      <h3>{t('heroSection.Rehla')} - <span>100 SAR</span></h3>
                      <p>{t('heroSection.price')}: <span>100 SAR</span></p>
-                     <a href="javascript:void(0);"><span>{t('heroSection.Chargewallet')}</span></a>
+                     <a href="#/add-balance-form"><span>{t('heroSection.Chargewallet')}</span></a>
                   </div>
                </div>
             </div>

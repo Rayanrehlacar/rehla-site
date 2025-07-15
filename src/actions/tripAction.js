@@ -12,15 +12,18 @@ export const addNewTripAction = (formData, navigate) => async (dispatch) => {
 
       toast.error(response?.error)
       dispatch(setIsLoading(false))
+      return { type: 'ADD_TRIP_FAILURE' };
     } else {
       toast.success(data?.metas?.message)
       dispatch(setIsLoading(false))
+      return { type: 'ADD_TRIP_SUCCESS' };
       //  navigate(ROUTESCONSTANTS.VERIFICATION,{state:formData});
     }
   }
   catch (error) {
     dispatch(setIsLoading(false));
     toast.error("An error occurred while processing your request.");
+    return { type: 'ADD_TRIP_FAILURE' };
   }
 };
 

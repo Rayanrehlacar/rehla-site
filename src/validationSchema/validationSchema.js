@@ -75,7 +75,7 @@ export const prebookingSchema = Yup.object().shape({
   ToLongitude: Yup.string(),
   SourceCity: Yup.string().required("Start Place is Required"),
   DestinationCity: Yup.string().required("Arrival Place is Required"),
-  StartDateTime: Yup.date("Enter a Valid Date").required("Enter Start date"),
+  StartDate: Yup.date("Enter a Valid Date").required("Enter Start date"),
   EndDateTime: Yup.string(),
   ExpectedDistance: Yup.string(),
   ExpectedCost: Yup.string(),
@@ -93,7 +93,12 @@ export const prebookingSchema = Yup.object().shape({
   SystemSettingId: Yup.string(),
   PaymentType: Yup.string().required("Payment Type is Required"),
 
-  start_time: Yup.string().required("Time is Required"),//temp for start time
+  StartTime: Yup.string().required("Time is Required"),//temp for start time
+  PassengerPhone:Yup.string().matches(phoneRegExp, "Passenger Phone is not valid").required("Passenger Phone is required"),
+  PassengerName:Yup.string().required("Passenger Name is required"),
+  PassengerCount: Yup.number().min(1, "At least 1 passenger required").required(),
+  EmployeeName: Yup.string().required("Employee name is required"),
+  BagCount: Yup.number().min(0).required(),
 })
 
 export const sendParcelSchema = Yup.object().shape({

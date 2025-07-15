@@ -145,10 +145,15 @@ function RegisterTraveler() {
                         value={values?.YearsOfExperienceCount}
                         type="number"
                         id="experience"
-                        minlength="0"
+                        min="0"
                         name="YearsOfExperienceCount"
                         placeholder="5"
                         required
+                        onKeyDown={(e) => {
+                          if (e.key === '-' || e.key === 'e') {
+                            e.preventDefault(); // Prevent minus sign and exponential notation
+                          }
+                        }}
                       />
                     </div>
                     <div className="booking_group">
@@ -183,12 +188,15 @@ function RegisterTraveler() {
                               const selected = values.TourismExpertAreas
                                 ? values.TourismExpertAreas.split(",")
                                 : [];
-                              if (!selected.includes(`${tour?.Id}`))
+                              if (selected.includes(`${tour?.Id}`)) {
+                                // REMOVE if already selected
+                                const updated = selected.filter(id => id !== `${tour?.Id}`);
+                                setFieldValue("TourismExpertAreas", updated.join(","));
+                              } else {
+                                // ADD if not selected
                                 selected.push(`${tour?.Id}`);
-                              setFieldValue(
-                                "TourismExpertAreas",
-                                selected.join(",")
-                              );
+                                setFieldValue("TourismExpertAreas", selected.join(","));
+                              }
                             }}
                           >
                             {i18n.language === "ur" ? tour?.NameLT : tour?.Name}
@@ -213,18 +221,21 @@ function RegisterTraveler() {
                               const selected = values.TourismExpertLanguages
                                 ? values.TourismExpertLanguages.split(",")
                                 : [];
-                              if (!selected.includes(`${item?.Id}`))
+                              if (selected.includes(`${item?.Id}`)) {
+                                // REMOVE if already selected
+                                const updated = selected.filter(id => id !== `${item?.Id}`);
+                                setFieldValue("TourismExpertLanguages", updated.join(","));
+                              } else {
+                                // ADD if not selected
                                 selected.push(`${item?.Id}`);
-                              setFieldValue(
-                                "TourismExpertLanguages",
-                                selected.join(",")
-                              );
+                                setFieldValue("TourismExpertLanguages", selected.join(","));
+                              }
                             }}
                           >
                             {i18n.language === "ur" ? item?.NameLT : item?.Name}
                           </button>
                         ))}
-
+{/* 
                         <button
                           type="button"
                           onClick={() => {
@@ -257,7 +268,7 @@ function RegisterTraveler() {
                           }}
                         >
                           Spanish
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>

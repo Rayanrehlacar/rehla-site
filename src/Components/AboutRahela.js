@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../css/style.css'
 import '../css/reset.css'
 import '../css/responsive.css'
@@ -9,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 function AboutRahela() {
    const { t } = useTranslation();
    const [showVideo, setShowVideo] = useState(false);
+   const navigate = useNavigate();
+   const isLoggedIn = !!!!sessionStorage.getItem('profile');  
 
    const handleVideoToggle = () => {
       setShowVideo(!showVideo);
@@ -23,9 +26,13 @@ function AboutRahela() {
                   <h4>{t('heroSection.AboutReh')}</h4>
                   <h2> <span>{t('heroSection.Rehla')}</span> {t('heroSection.RehlaIntro')} </h2>
                   <p>{t('heroSection.RehDes')}</p>
+                  {!isLoggedIn && (
                   <div class="blue_btn">
-                     <a href="javascript:void(0)"><span>{t('AboutUspage.GetStarted')}</span></a>
+                     <a onClick={() => navigate("/login")}>
+                        <span>{t('AboutUspage.GetStarted')}</span>
+                     </a>
                   </div>
+                  )}
                </div>
                <div class="about_img">
                   <img src="../../images/image.webp" alt="img"/>
@@ -57,9 +64,13 @@ function AboutRahela() {
                   <h4>{t('heroSection.AboutReh')}</h4>
                   <h2> <span>{t('heroSection.Signup')}</span>{t('heroSection.addingcar')}</h2>
                   <p>{t('heroSection.Trainingvideo')}</p>
+                  {!isLoggedIn && (
                   <div class="blue_btn">
-                     <a href="javascript:void(0)"><span>{t('AboutUspage.GetStarted')}</span></a>
+                     <a onClick={() => navigate("/login")}>
+                        <span>{t('AboutUspage.GetStarted')}</span>
+                     </a>
                   </div>
+                  )}
                </div>
                <div className="about_img">
                   <img src="../../images/image.webp" alt="Trip" />
@@ -93,9 +104,13 @@ function AboutRahela() {
                   <h4>{t('heroSection.AboutReh')}</h4>
                   <h2> <span>{t('heroSection.Rehla')}</span>{t('heroSection.Create')}</h2>
                   <p>{t('heroSection.explanation')}</p>
+                  {!isLoggedIn && (
                   <div class="blue_btn">
-                     <a href="javascript:void(0)"><span>{t('AboutUspage.GetStarted')}</span></a>
+                     <a onClick={() => navigate("/login")}>
+                        <span>{t('AboutUspage.GetStarted')}</span>
+                     </a>
                   </div>
+                  )}
                </div>
                <div class="about_img">
                   <img src="../../images/image.webp" alt="img"/>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import { Formik } from 'formik';
@@ -9,9 +9,12 @@ import { addNewTripAction } from '../actions/tripAction';
 import { GetCarCategories } from '../services/tripService';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Autocomplete } from '@react-google-maps/api';
 
 function PrebookingTrips() {
-   const { t } = useTranslation(); 
+   const { t } = useTranslation();
+   const sourceRef = useRef(null);
+   const destinationRef = useRef(null);
 
    const navigate = useNavigate()
    const [tripDetails, setTripDetails] = useState({
@@ -23,7 +26,17 @@ function PrebookingTrips() {
       // ToLongitude: "",
       SourceCity: "",
       DestinationCity: "",
-      StartDateTime: "",
+      StartDate: "",
+      StartTime: '',
+      PassengerName: '',
+      PassengerPhone: '',
+      PassengerCount: '',
+      EmployeeName: '',
+      BagCount: '',
+      Coupon: '',
+      CarCategoryId: '',
+      PaymentType: '',
+      Description: '',
       // EndDateTime: "",
       // ExpectedDistance: "",
       // ExpectedCost: "",
@@ -31,16 +44,11 @@ function PrebookingTrips() {
       // RealCostWithoutCommission: "",
       // SeatCountId: "",
       // IsGoingOnly: "",
-      // ReturnStartDateTime: "",
+      // ReturnStartDate: "",
       // ReturnEndDateTime: "",
       // DiscountProgramId: "",
-      CarCategoryId: "",
-      // Description: "",
-      // Coupon: "",
-      Coupon: "",
       // SystemSettingId: "",
-      PaymentType: "",
-      start_time: "",
+
    });
 
    const dispatch = useDispatch();
@@ -48,23 +56,36 @@ function PrebookingTrips() {
    const handleSubmitForm = async (values) => {
       let post = {
          ...values,
-         StartDateTime: values?.StartDateTime + " " + values?.start_time
+         StartDate: values?.StartDate + " " + values?.StartTime
       }
 
       let res = dispatch(addNewTripAction(post));
-      // navigate('/my-trip')
+      // Check if action was successful using returned value
+      if (res?.type === 'ADD_TRIP_SUCCESS') {
+         navigate('/my-trip');
+      }
    };
 
-   const [carcategoryList,setCarcategoryList] = useState([]);
+   const [carcategoryList, setCarcategoryList] = useState([]);
 
    useEffect(() => {
       getCarCategories();
-   },[]);
+   }, []);
 
    const getCarCategories = async () => {
-      let {data} = await GetCarCategories();
-      setCarcategoryList (data?.model);
+      let { data } = await GetCarCategories();
+      setCarcategoryList(data?.model);
    }
+
+   // Inside the Formik context
+   const handlePlaceSelect = (ref, fieldName, setFieldValue) => {
+      const place = ref.current.getPlace();
+      if (place?.formatted_address) {
+         setFieldValue(fieldName, place.formatted_address);
+      } else if (place?.name) {
+         setFieldValue(fieldName, place.name);
+      }
+   };
 
    return (
       <>
@@ -101,7 +122,8 @@ function PrebookingTrips() {
                      errors,
                      touched,
                      handleChange,
-                     handleSubmit
+                     handleSubmit,
+                     setFieldValue
                   }) =>
                   (
                      <form class="prebooking_form" id="prebooking_form" onSubmit={handleSubmit}>
@@ -109,30 +131,56 @@ function PrebookingTrips() {
                            <div class="booking_grid">
                               <div class="booking_group">
                                  <label for="SourceCity">{t('preBookingtrips.startPlace')}</label>
-                                 <input type="text" id="SourceCity" value={values?.SourceCity} placeholder="please enter Start Place" onChange={handleChange} />
+                                 <Autocomplete
+                                    onLoad={(autoC) => (sourceRef.current = autoC)}
+                                    onPlaceChanged={() =>
+                                       handlePlaceSelect(sourceRef, "SourceCity", setFieldValue)
+                                    }
+                                 >
+                                    <input type="text" id="SourceCity" value={values?.SourceCity} placeholder="please enter Start Place" onChange={handleChange} />
+                                 </Autocomplete>
                                  <LocalError touched={touched.SourceCity} error={errors.SourceCity} />
 
                               </div>
                               <div class="booking_group">
                                  <label for="DestinationCity">{t('preBookingtrips.arrivalPlace')}</label>
-                                 <input type="text" id="DestinationCity" value={values?.DestinationCity} placeholder="please enter Arrival Place" onChange={handleChange} />
+                                 <Autocomplete
+                                    onLoad={(autoC) => (destinationRef.current = autoC)}
+                                    onPlaceChanged={() =>
+                                       handlePlaceSelect(destinationRef, "DestinationCity", setFieldValue)
+                                    }
+                                 >
+                                    <input type="text" id="DestinationCity" value={values?.DestinationCity} placeholder="please enter Arrival Place" onChange={handleChange} />
+                                 </Autocomplete>
                                  <LocalError touched={touched.DestinationCity} error={errors.DestinationCity} />
 
                               </div>
                            </div>
                            <div class="booking_grid">
                               <div class="booking_group">
-                                 <label for="StartDateTime">{t('preBookingtrips.startDate')}</label>
-                                 <input type="date" id="StartDateTime" value={values?.StartDateTime} placeholder="please Select Start date" 
-                                 onChange={handleChange} min={new Date().toISOString().split('T')[0]} />
-                                 <LocalError touched={touched.StartDateTime} error={errors.StartDateTime} />
+                                 <label for="StartDate">{t('preBookingtrips.startDate')}</label>
+                                 <input type="date" id="StartDate" value={values?.StartDate} placeholder="please Select Start date"
+                                    onChange={handleChange} min={new Date().toISOString().split('T')[0]} />
+                                 <LocalError touched={touched.StartDate} error={errors.StartDate} />
 
                               </div>
                               <div class="booking_group">
-                                 <label for="start_time">{t('preBookingtrips.startTime')}</label>
-                                 <input type="time" id="start_time" value={values?.start_time} placeholder="please Select Start time" onChange={handleChange} />
-                                 <LocalError touched={touched.start_time} error={errors.start_time} />
+                                 <label for="StartTime">{t('preBookingtrips.startTime')}</label>
+                                 <input type="time" id="StartTime" value={values?.StartTime} placeholder="please Select Start time" onChange={handleChange} />
+                                 <LocalError touched={touched.StartTime} error={errors.StartTime} />
 
+                              </div>
+                           </div>
+                           <div class="booking_grid">
+                              <div class="booking_group">
+                                 <label for="PassengerName">{t('preBookingtrips.PassengerName')}</label>
+                                 <input type="text" id="PassengerName" value={values?.PassengerName} placeholder="please enter Passenger Name" onChange={handleChange} />
+                                 <LocalError touched={touched.PassengerName} error={errors.PassengerName} />
+                              </div>
+                              <div class="booking_group">
+                                 <label for="PassengerPhone">{t('preBookingtrips.PassengerPhone')}</label>
+                                 <input type="text" id="PassengerPhone" value={values?.PassengerPhone} placeholder="please enter Passenger Phone" onChange={handleChange} />
+                                 <LocalError touched={touched.PassengerPhone} error={errors.PassengerPhone} />
                               </div>
                            </div>
                            <div class="booking_grid">
@@ -151,7 +199,7 @@ function PrebookingTrips() {
                                  <label for="CarCategoryId">{t('preBookingtrips.SelectCarcategory')}</label>
                                  <select id="CarCategoryId" onChange={handleChange} value={values?.CarCategoryId} >
                                     <option value="">Please Select car category</option>
-                                    {carcategoryList.map((category)=>(
+                                    {carcategoryList.map((category) => (
                                        <option key={category.Id} value={category.Id}>
                                           {category.Name}
                                        </option>
@@ -161,11 +209,41 @@ function PrebookingTrips() {
 
                               </div>
                            </div>
+                           <div class="booking_grid">
+                              <div class="booking_group">
+                                 <label for="Coupon">{t('preBookingtrips.coupon')}</label>
+                                 <input type="text" id="Coupon" value={values?.Coupon} placeholder="please enter coupon" onChange={handleChange} />
+                                 <LocalError touched={touched.Coupon} error={errors.Coupon} />
+                              </div>
+                              <div class="booking_group">
+                                 <label for="PassengerCount">{t('preBookingtrips.PassengerCount')}</label>
+                                 <input type="text" id="PassengerCount" value={values?.PassengerCount} placeholder="please enter number of passengers" onChange={handleChange} />
+                                 <LocalError touched={touched.PassengerCount} error={errors.PassengerCount} />
+                              </div>
+                           </div>
+                           <div class="booking_grid">
+                              <div class="booking_group">
+                                 <label for="EmployeeName">{t('preBookingtrips.EmployeeName')}</label>
+                                 <input type="text" id="EmployeeName" value={values?.EmployeeName} placeholder="please enter name of employee" onChange={handleChange} />
+                                 <LocalError touched={touched.EmployeeName} error={errors.EmployeeName} />
+                              </div>
+                              <div class="booking_group">
+                                 <label for="BagCount">{t('preBookingtrips.BagCount')}</label>
+                                 <input type="text" id="BagCount" value={values?.BagCount} placeholder="please enter number of bags" onChange={handleChange} />
+                                 <LocalError touched={touched.BagCount} error={errors.BagCount} />
+                              </div>
+                           </div>
                            <div class="booking_group">
-                              <label for="Coupon">{t('preBookingtrips.coupon')}</label>
-                              <input type="text" id="Coupon" value={values?.Coupon} placeholder="please enter coupon" onChange={handleChange} />
-                              <LocalError touched={touched.Coupon} error={errors.Coupon} />
-
+                              <label for="Description">{t('preBookingtrips.Description')}</label>
+                              <textarea
+                                 id="Description"
+                                 name="Description"
+                                 value={values?.Description}
+                                 placeholder="please enter Trip notes"
+                                 onChange={handleChange}
+                                 rows="4"
+                                 className="form-control"
+                              />
                            </div>
                         </div>
                         <button type="submit" class="prebooking_sub">{t('preBookingtrips.preBookingNow')}</button>
