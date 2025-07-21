@@ -12,7 +12,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import { LoadScript } from '@react-google-maps/api';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyDzeNczogKbnxoQNmKiG23ul1mBbWibsEY';
+const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
