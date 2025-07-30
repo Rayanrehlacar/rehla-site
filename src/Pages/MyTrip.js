@@ -77,7 +77,7 @@ function MyTrip() {
                         </ul>
                         <div className="trip_bottom">
                            <p>{formatDateTime(item?.StartDate, item?.StartTime)}</p>
-                           <h3>{item?.RealCost ?? 0} KD</h3>
+                           <h3>{item?.RealCost ?? 0} SAR</h3>
                         </div>
                      </div>
                   ))

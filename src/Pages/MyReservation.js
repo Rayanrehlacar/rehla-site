@@ -75,7 +75,7 @@ function MyReservation() {
                         </ul>
                         <div className="trip_bottom">
                            <p>{formatDateTime(item?.StartDate)}</p>
-                           <h3>{item?.RealCost ?? '0.000'} KD</h3>
+                           <h3>{item?.RealCost ?? '0.000'} SAR</h3>
                         </div>
                      </div>
                   ))
