@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import { Formik } from 'formik';
@@ -8,11 +8,14 @@ import { submitSendParcel } from '../actions/tripAction';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Autocomplete } from '@react-google-maps/api';
 
 function SendParcel() {
    const { t } = useTranslation(); 
    const navigate = useNavigate();
    const location = useLocation();
+   const sourceRef = useRef(null);
+   const destinationRef = useRef(null);
 
    // Check login status
   useEffect(() => {
@@ -41,6 +44,16 @@ function SendParcel() {
          ...values
       }
       let res = dispatch(submitSendParcel(post));
+   };
+
+   // Inside the Formik context
+   const handlePlaceSelect = (ref, fieldName, setFieldValue) => {
+      const place = ref.current.getPlace();
+      if (place?.formatted_address) {
+         setFieldValue(fieldName, place.formatted_address);
+      } else if (place?.name) {
+         setFieldValue(fieldName, place.name);
+      }
    };
 
    return (
@@ -90,7 +103,7 @@ function SendParcel() {
                      touched,
                      handleChange,
                      setFieldValue,
-                     handleSubmit
+                     handleSubmit,
                   }) =>
                   (
                      <form class="prebooking_form" id="prebooking_form" onSubmit={handleSubmit}>
@@ -98,13 +111,27 @@ function SendParcel() {
                            <div class="booking_grid">
                               <div class="booking_group">
                                  <label htmlFor="SourceCity">{t('sendParcel.SourceCity')}</label>
+                                  <Autocomplete
+                                    onLoad={(autoC) => (sourceRef.current = autoC)}
+                                    onPlaceChanged={() =>
+                                       handlePlaceSelect(sourceRef, "SourceCity", setFieldValue)
+                                    }
+                                 >
                                  <input type="text" id="SourceCity" value={values?.SourceCity} placeholder="please enter sender location" onChange={handleChange} />
+                                 </Autocomplete>
                                  <LocalError touched={touched.SourceCity} error={errors.SourceCity} />
 
                               </div>
                               <div class="booking_group">
                                  <label htmlFor="DestinationCity">{t('sendParcel.DestinationCity')}</label>
+                                  <Autocomplete
+                                    onLoad={(autoC) => (destinationRef.current = autoC)}
+                                    onPlaceChanged={() =>
+                                       handlePlaceSelect(destinationRef, "DestinationCity", setFieldValue)
+                                    }
+                                 >
                                  <input type="text" id="DestinationCity" value={values?.DestinationCity} placeholder="please enter recevier location" onChange={handleChange} />
+                                 </Autocomplete>
                                  <LocalError touched={touched.DestinationCity} error={errors.DestinationCity} />
 
                               </div>

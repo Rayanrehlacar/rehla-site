@@ -39,7 +39,8 @@ import CustomSpinner from './Components/CustomLoader/loader';
 import PublicRoute from './layout/PublicRoute';
 import { initializeAuth } from './actions/authAction';
 import Logout from './Pages/logout';
-import MySendParcels from './Pages/MySendParcels'
+import MySendParcels from './Pages/MySendParcels';
+import ScrollToTop from './Pages/ScrollToTop';
 
 function App() {
   const {userDetails} = useSelector((state) => state.userStore);
@@ -52,6 +53,7 @@ function App() {
     <HashRouter>
       {isLoading && <CustomSpinner />}
       <Suspense fallback={<div>Loading...</div>}>
+        <ScrollToTop />
         <Routes>
         <Route element={<PrivateRoute userData={userDetails} />}>
           <Route exact path="/prebooking-trips" element={<PrebookingTrips/>} /> 

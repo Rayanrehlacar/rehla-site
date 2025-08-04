@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import LocalError from '../Components/Error/validationError';
 import Footer from '../Components/Footer/Footer';
 import Header from '../Components/Header/Header';
@@ -9,8 +9,18 @@ import { GetBanks, AddTransaction } from '../services/tripService';
 
 function AddBalance() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [bank, setBanks] = useState([]);
   const [message, setMessage] = useState('');
+
+  // Check login status
+  useEffect(() => {
+  const isLoggedIn = sessionStorage.getItem('profile');
+  if (!isLoggedIn) {
+    navigate('/login', { state: { from: location.pathname } });
+  }
+  }, [navigate, location]);
+  
 
   useEffect(() => {
     getBanks();

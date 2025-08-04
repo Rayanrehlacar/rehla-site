@@ -128,3 +128,17 @@ export const updateProfileImage=async(formData)=>{
     return handleApiError(error)
   }
 }
+
+export const resend2FAEmailCode = async () => {
+  try {
+    const res = await authInterceptor.post(APICONSTANTS.resend2FAEmailCode, {}, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return { error: null, data: res.data };
+  } catch (error) {
+    return handleApiError(error);
+  }
+};
+

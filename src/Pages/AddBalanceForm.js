@@ -1,10 +1,20 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React,{useEffect} from 'react';
+import { useNavigate,useLocation } from 'react-router-dom';
 import Footer from '../Components/Footer/Footer';
 import Header from '../Components/Header/Header';
 
 function AddBalanceForm() {
    const navigate = useNavigate();
+   const location = useLocation();
+   
+   // Check login status
+   useEffect(() => {
+   const isLoggedIn = sessionStorage.getItem('profile');
+   if (!isLoggedIn) {
+      navigate('/login', { state: { from: location.pathname } });
+   }
+   }, [navigate, location]);
+
    const handleSubmitForm = async (values) => {
       console.log({ values });
       // let res = await ContactUs(values)
@@ -22,7 +32,7 @@ function AddBalanceForm() {
                </div>
                <div class="bredcrub">
                   <a href="index.html" target="_self"> Home </a><span> <img src="images/arrow.png" alt="arrow" /></span>
-                  <p>Add balance </p>
+                  <p>Add balance</p>
                </div>
             </div>
          </section>
