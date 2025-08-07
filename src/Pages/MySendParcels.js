@@ -3,21 +3,36 @@ import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import { GetRequestsToSendPackage } from '../services/tripService';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function MyReservation() {
    const { t } = useTranslation();
    const [packageList, setPackageList] = useState([]);
    const [loading, setLoading] = useState(true);
+   const navigate = useNavigate();
+   const location = useLocation();
 
    useEffect(() => {
-    getPackageRes();
-   }, []);
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+         return;
+      }
+      getPackageRes();
+   }, [navigate, location]);
+
 
    const getPackageRes = async () => {
-      const { data } = await GetRequestsToSendPackage();
-      setPackageList(data?.model || []);
-      setLoading(false);
-   }
+      try {
+         const { data } = await GetRequestsToSendPackage();
+         setPackageList(data?.model || []);
+      } catch (error) {
+         console.error("Failed to fetch packages", error);
+      } finally {
+         setLoading(false);
+      }
+   };
 
 
    // Helper function to format date and time
@@ -41,20 +56,20 @@ function MyReservation() {
    return (
       <>
          <Header />
-         <section class="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
-            <div class="container">
-               <div class="banner_head">
+         <section className="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
+            <div className="container">
+               <div className="banner_head">
                   <h1>{t('header.mySendParcel')}</h1>
                   <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo  congue purus pretium ligula </p>
                </div>
-               <div class="bredcrub">
+               <div className="bredcrub">
                   <a href="index.html" target="_self">{t('header.home')}</a><span> <img src="images/arrow.png" alt="arrow" /></span>
                   <p>{t('header.mySendParcel')}</p>
                </div>
             </div>
          </section>
-         <section class="my_reservation ptb100">
-            <div class="container">
+         <section className="my_reservation ptb100">
+            <div className="container">
                {loading ? (
                   <div className="">
                      <p>Loading...</p>
@@ -75,7 +90,7 @@ function MyReservation() {
                         </ul>
                         <div className="trip_bottom">
                            <p>{formatDateTime(item?.CreationDate)}</p>
-                           <h3>{item?.RealCost ?? '0.000'} KD</h3>
+                           <h3>{item?.RealCost ?? '0.000'} SAR</h3>
                         </div>
                      </div>
                   ))

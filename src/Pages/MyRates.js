@@ -6,13 +6,15 @@ import { getMyRates } from '../actions/tripAction'
 import {getMyAllRates} from '../services/tripService';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function MyRates() {
 
    const { t } = useTranslation();
    const [myRates,setMyRates] = useState([]);
    const [loading, setLoading] = useState(true); // Added loading state
+   const navigate = useNavigate();
+   const location = useLocation();
    // const dispatch= useDispatch()
    // const {userDetails} = useSelector((state) => state.userStore);
    // useEffect(()=>{
@@ -20,8 +22,14 @@ function MyRates() {
    // },[])
 
    useEffect(()=>{
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+         return;
+      }
       getAllRates();
-   },[]);
+   }, [navigate, location]);
 
    const getAllRates = async () => {
       try {

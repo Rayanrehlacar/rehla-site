@@ -3,16 +3,25 @@ import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import { GetPrebookingAdvance } from '../services/tripService';
 import { useTranslation } from 'react-i18next';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function MyTrip() {
    const { t } = useTranslation();
    const [trips, setTrips] = useState([]);
    const [loading, setLoading] = useState(true);
+   const navigate = useNavigate();
+   const location = useLocation();
 
    useEffect(() => {
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+         return;
+      }
+
       getTrips();
-   }, []);
+   }, [navigate, location]);
 
    const getTrips = async () => {
       // const {data} = await getDriverTrips();

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { GetMyPreferences, EditPreferences } from "../services/tripService";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const preferenceOptions = [
    { key: 'LikeMusic', label: 'Music', icon: 'Music.svg' },
@@ -18,12 +19,21 @@ const preferenceOptions = [
  ];
  
  const MyPreferences = () => {
-   const { t } = useTranslation();
-   const [userPreferences, setUserPreferences] = useState({});
+    const { t } = useTranslation();
+    const [userPreferences, setUserPreferences] = useState({});
+    const navigate = useNavigate();
+    const location = useLocation();
  
    useEffect(() => {
-     fetchPreferences();
-   }, []);
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+        navigate('/login', { state: { from: location.pathname } });
+        return;
+      }
+
+      fetchPreferences();
+    }, [navigate, location]);
  
    const fetchPreferences = async () => {
      const { data } = await GetMyPreferences();
