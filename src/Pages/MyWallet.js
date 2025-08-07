@@ -4,16 +4,26 @@ import Header from '../Components/Header/Header';
 import { GetTransactions } from '../services/tripService';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function MyWallet() {
    const { t } = useTranslation();
    const [loading, setLoading] = useState(true);
-
    const [transaction, setTransaction] = useState({})
+   const navigate = useNavigate();
+   const location = useLocation();
+   
    useEffect(() => {
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+         return;
+      }
+
       getTransaction();
-   }, [])
+   }, [navigate, location]);
+
    const getTransaction = async () => {
       let { data } = await GetTransactions();
       setTransaction(data?.model || []);

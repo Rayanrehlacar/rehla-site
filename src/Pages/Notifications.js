@@ -5,15 +5,24 @@ import {GetAllNotification} from '../services/tripService';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n'; 
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Notifications() {
    const { t } = useTranslation();
    const [notification,setNotification] = useState([]);
    const [loading, setLoading] = useState(true);
+   const navigate = useNavigate();
+   const location = useLocation();
 
   useEffect(() => {
+   const isLoggedIn = sessionStorage.getItem('profile');
+
+   if (!isLoggedIn) {
+      navigate('/login', { state: { from: location.pathname } });
+      return;
+   }
    getAllNotification();
-  },[i18n.language]);
+  },[i18n.language, navigate, location]);
 
   const getAllNotification = async () => {
       try {

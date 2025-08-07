@@ -3,15 +3,25 @@ import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 import { getPassengerReservations } from '../services/tripService';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function MyReservation() {
    const { t } = useTranslation();
    const [passengerList, setPassengerList] = useState([]);
    const [loading, setLoading] = useState(true);
+   const navigate = useNavigate();
+   const location = useLocation();
 
    useEffect(() => {
+      const isLoggedIn = sessionStorage.getItem('profile');
+
+      if (!isLoggedIn) {
+         navigate('/login', { state: { from: location.pathname } });
+         return;
+      }
+
       getPassengerRes();
-   }, []);
+   }, [navigate, location]);
 
    const getPassengerRes = async () => {
       const { data } = await getPassengerReservations();

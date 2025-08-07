@@ -5,19 +5,26 @@ import { registerTravelerSchema } from "../validationSchema/validationSchema";
 import { Formik } from "formik";
 import { AddTourismExpert, GetTouristAreas, GetLanguages } from "../services/tripService";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from 'react-router-dom'; 
 import i18n from '../i18n'; 
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function RegisterTraveler() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [tours, setTours] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
+    const isLoggedIn = sessionStorage.getItem('profile');
+
+    if (!isLoggedIn) {
+      navigate('/login', { state: { from: location.pathname } });
+      return;
+    }
     fetchAllData();
-  }, [i18n.language]); 
+  }, [i18n.language, navigate, location]); 
 
   
   const fetchAllData = async () => {
