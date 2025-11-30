@@ -4,6 +4,8 @@ import Header from '../Components/Header/Header'
 import { GetPrebookingAdvance } from '../services/tripService';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Skeleton, Card } from 'antd';
+import './MyTrip.css';
 
 function MyTrip() {
    const { t } = useTranslation();
@@ -25,7 +27,7 @@ function MyTrip() {
 
    const getTrips = async () => {
       // const {data} = await getDriverTrips();
-      const { data } = await GetPrebookingAdvance(0);
+      const { data } = await GetPrebookingAdvance();
       setTrips(data?.model || []);
       setLoading(false);
    }
@@ -52,46 +54,59 @@ function MyTrip() {
    return (
       <>
          <Header />
-         <section class="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
-            <div class="container">
-               <div class="banner_head">
+         <section className="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
+            <div className="container">
+               <div className="banner_head">
                   <h1>{t('header.myTrips')}</h1>
                   <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo  congue purus pretium ligula </p>
                </div>
-               <div class="bredcrub">
+               <div className="bredcrub">
                   <a href="index.html" target="_self">{t('header.home')}</a><span> <img src="images/arrow.png" alt="arrow" /></span>
                   <p>{t('header.myTrips')}</p>
                </div>
             </div>
          </section>
-         <section class="my_trip ptb100">
+         <section className="my_trip ptb100">
             <div className="container">
                {loading ? (
-                  <div className="">
-                     <p>Loading...</p>
+                  <div className="trip_skeleton_container">
+                     {[...Array(4)].map((_, index) => (
+                        <Card key={index} className="trip_skeleton_card" bordered={false}>
+                           <Skeleton active avatar={{ shape: 'square', size: 68 }} paragraph={{ rows: 3 }} />
+                        </Card>
+                     ))}
                   </div>
                ) : trips.length > 0 ? (
-                  trips.map((item, index) => (
-                     <div className="trip_box" key={index}>
-                        <div className="trip_head">
-                           <img src="images/my_trip/car.png" alt="car" />
-                           <h2>Go trip <span> ({item?.UserId}#)</span></h2>
+                  <div className="trip_grid">
+                     {trips.map((item, index) => (
+                        <div 
+                           className="trip_box enhanced_trip_box" 
+                           key={index}
+                           // onClick={() => navigate(`/trip-details/${item?.Id}`, { state: { tripData: item } })}
+                           // style={{ cursor: 'pointer' }}
+                        >
+                           <div className="trip_head">
+                              <img src="images/my_trip/car.png" alt="car" />
+                              <h2>Go trip <span> ({item?.UserId}#)</span></h2>
+                           </div>
+                           <div className="ribben sky">
+                              <span>{item?.PrebookingAdvanceStatusName}</span>
+                           </div>
+                           <ul className="trip_list">
+                              <li><img src="images/my_trip/list1.png" alt="list1" /><span>{item?.SourceCity}</span></li>
+                              <li><img src="images/my_trip/list2.png" alt="list2" /><span>{item?.DestinationCity}</span></li>
+                           </ul>
+                           <div className="trip_bottom">
+                              <p>{formatDateTime(item?.StartDate, item?.StartTime)}</p>
+                              <h3>{item?.RealCost ?? 0} SAR</h3>
+                           </div>
                         </div>
-                        <div className="ribben sky">
-                           <span>{item?.PrebookingAdvanceStatusName}</span>
-                        </div>
-                        <ul className="trip_list">
-                           <li><img src="images/my_trip/list1.png" alt="list1" /><span>{item?.SourceCity}</span></li>
-                           <li><img src="images/my_trip/list2.png" alt="list2" /><span>{item?.DestinationCity}</span></li>
-                        </ul>
-                        <div className="trip_bottom">
-                           <p>{formatDateTime(item?.StartDate, item?.StartTime)}</p>
-                           <h3>{item?.RealCost ?? 0} SAR</h3>
-                        </div>
-                     </div>
-                  ))
+                     ))}
+                  </div>
                ) : (
-                  <p>No Trips found</p>
+                  <div className="empty_state">
+                     <p>No Trips found</p>
+                  </div>
                )}
             </div>
 

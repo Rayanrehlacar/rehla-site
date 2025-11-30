@@ -1,13 +1,13 @@
 
   export const BASE_URL =
     "https://cors-anywhere.herokuapp.com/https://wexapis-uks-uat-apim.azure-api.net/";
+
   const onAuthRequest = (
     config
   ) => {
     // console.info(`[request] [${JSON.stringify(config)}]`);
     const token = localStorage.getItem("profile")||sessionStorage.getItem("profile");
     const access_token = JSON.parse(token)?.accessToken;
-   
     if (access_token) {
       config.headers["Authorization"] = "Bearer "+access_token;
     } else {
@@ -18,7 +18,11 @@
   const onRequest = (
     config
   ) => {
-    console.info(`[request] [${JSON.stringify(config)}]`);
+    const token = localStorage.getItem("profile")||sessionStorage.getItem("profile");
+    const access_token = JSON.parse(token)?.accessToken;
+    if (access_token) {
+      config.headers["Authorization"] = "Bearer "+access_token;
+    }
     return config;
   };
   

@@ -310,7 +310,7 @@ export const GetTourismExpertDetails = async ({Id,TouristAreaId} = {}) => {
 
 export const GetPrebookingAdvance = async ({ page = 0} = {}) => {
   let url;
-    url = APICONSTANTS.getPrebookingAdvance({ page});
+    url = APICONSTANTS.getPrebookingAdvance(page);
   try {
     const res = await authInterceptor.get(url);
     return { error: null, data: res.data };

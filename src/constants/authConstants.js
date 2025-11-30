@@ -71,6 +71,8 @@ export const ROUTESCONSTANTS = {
     CITY_TOUR_SINGLE: "/city-tour-single",
     MY_TRIP: "/my-trip",
     MY_RESERVATION: "/my-reservation",
+    TRIP_DETAILS: "/trip-details",
+    RESERVATION_DETAILS: "/reservation-details",
     MY_RATES: "/my-rates",
     NOTIFICATIONS: "/notifications",
     VERIFICATIONS: "/verifications",

@@ -32,6 +32,8 @@ import MyRates from './Pages/MyRates';
 import CityTour from './Pages/CityTour'; 
 import MyTrip from './Pages/MyTrip';
 import MyReservation from './Pages/MyReservation';
+import TripDetails from './Pages/TripDetails';
+import ReservationDetails from './Pages/ReservationDetails';
 import CityTourSingle from './Pages/CityTourSingle';
 import PrivateRoute from './layout/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
@@ -71,6 +73,8 @@ function App() {
           <Route exact path="/my-rates" element={<MyRates/>} />
           <Route exact path="/my-trip" element={<MyTrip/>} />
           <Route exact path="/my-reservation" element={<MyReservation/>} />
+          <Route path="/trip-details/:id" element={<TripDetails/>} />
+          <Route path="/reservation-details/:id" element={<ReservationDetails/>} />
           <Route exact path="/logout" element={<Logout/>} />
           <Route  element={<PublicRoute userData={userDetails} />}>
           <Route exact path="/login" element={<Login/>} />

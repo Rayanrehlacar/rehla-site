@@ -10,6 +10,7 @@ import { GetCarCategories } from '../services/tripService';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Autocomplete } from '@react-google-maps/api';
+import moment from 'moment';
 
 function PrebookingTrips() {
    const { t } = useTranslation();
@@ -20,10 +21,10 @@ function PrebookingTrips() {
    const [tripDetails, setTripDetails] = useState({
       // FromCaption: "",
       // ToCaption: "",
-      // FromLatitude: "",
-      // FromLongitude: "",
-      // ToLatitude: "",
-      // ToLongitude: "",
+      FromLatitude: "",
+      FromLongitude: "",
+      ToLatitude: "",
+      ToLongitude: "",
       SourceCity: "",
       DestinationCity: "",
       StartDate: "",
@@ -54,16 +55,32 @@ function PrebookingTrips() {
    const dispatch = useDispatch();
 
    const handleSubmitForm = async (values) => {
+      // Format StartDate as ISO format (2025-11-30T04:40:00) and StartTime as HH:mm:ss
+      let formattedStartDate = '';
+      let formattedStartTime = '';
+      
+      if (values?.StartDate && values?.StartTime) {
+         // Combine date and time, then format using moment
+         const dateTimeString = `${values.StartDate} ${values.StartTime}`;
+         const momentObj = moment(dateTimeString, 'YYYY-MM-DD HH:mm');
+         
+         // Format StartDate as ISO format without timezone (2025-11-30T04:40:00)
+         formattedStartDate = momentObj.format('YYYY-MM-DDTHH:mm:ss');
+         
+         // Format StartTime as HH:mm:ss (04:40:00)
+         formattedStartTime = momentObj.format('HH:mm:ss');
+      }
+      
       let post = {
          ...values,
-         StartDate: values?.StartDate + " " + values?.StartTime
+         StartDate: formattedStartDate || values?.StartDate,
+         StartTime: formattedStartTime || values?.StartTime,
+         PaymentType: values?.PaymentType === "true" ? true : values?.PaymentType
       }
 
       let res = dispatch(addNewTripAction(post));
-      // Check if action was successful using returned value
-      if (res?.type === 'ADD_TRIP_SUCCESS') {
-         navigate('/my-trip');
-      }
+      // Return success status
+      return res?.type === 'ADD_TRIP_SUCCESS';
    };
 
    const [carcategoryList, setCarcategoryList] = useState([]);
@@ -78,12 +95,28 @@ function PrebookingTrips() {
    }
 
    // Inside the Formik context
-   const handlePlaceSelect = (ref, fieldName, setFieldValue) => {
+   const handlePlaceSelect = (ref, fieldName, setFieldValue, isSource = false) => {
       const place = ref.current.getPlace();
+      
+      // Set the city name
       if (place?.formatted_address) {
          setFieldValue(fieldName, place.formatted_address);
       } else if (place?.name) {
          setFieldValue(fieldName, place.name);
+      }
+      
+      // Extract and set latitude and longitude
+      if (place?.geometry?.location) {
+         const lat = place.geometry.location.lat();
+         const lng = place.geometry.location.lng();
+         
+         if (isSource) {
+            setFieldValue('FromLatitude', lat.toString());
+            setFieldValue('FromLongitude', lng.toString());
+         } else {
+            setFieldValue('ToLatitude', lat.toString());
+            setFieldValue('ToLongitude', lng.toString());
+         }
       }
    };
 
@@ -112,9 +145,15 @@ function PrebookingTrips() {
                   validateOnBlur={false}
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                      setSubmitting(true);
-                     await handleSubmitForm(values);
+                     const res = await handleSubmitForm(values);
+                     console.log(res, "resssss")
                      resetForm();
                      setSubmitting(false);
+                     if(res){
+                     setTimeout(() => {
+                           navigate('/my-trip');
+                        }, 500);
+                     }
                   }}
                >
                   {({
@@ -134,7 +173,7 @@ function PrebookingTrips() {
                                  <Autocomplete
                                     onLoad={(autoC) => (sourceRef.current = autoC)}
                                     onPlaceChanged={() =>
-                                       handlePlaceSelect(sourceRef, "SourceCity", setFieldValue)
+                                       handlePlaceSelect(sourceRef, "SourceCity", setFieldValue, true)
                                     }
                                  >
                                     <input type="text" id="SourceCity" value={values?.SourceCity} placeholder="please enter Start Place" onChange={handleChange} />
@@ -147,7 +186,7 @@ function PrebookingTrips() {
                                  <Autocomplete
                                     onLoad={(autoC) => (destinationRef.current = autoC)}
                                     onPlaceChanged={() =>
-                                       handlePlaceSelect(destinationRef, "DestinationCity", setFieldValue)
+                                       handlePlaceSelect(destinationRef, "DestinationCity", setFieldValue, false)
                                     }
                                  >
                                     <input type="text" id="DestinationCity" value={values?.DestinationCity} placeholder="please enter Arrival Place" onChange={handleChange} />
@@ -199,7 +238,7 @@ function PrebookingTrips() {
                                  <label for="CarCategoryId">{t('preBookingtrips.SelectCarcategory')}</label>
                                  <select id="CarCategoryId" onChange={handleChange} value={values?.CarCategoryId} >
                                     <option value="">Please Select car category</option>
-                                    {carcategoryList.map((category) => (
+                                    {carcategoryList?.map((category) => (
                                        <option key={category.Id} value={category.Id}>
                                           {category.Name}
                                        </option>
