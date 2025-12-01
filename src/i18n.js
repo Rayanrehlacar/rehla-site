@@ -278,7 +278,7 @@ i18n.use(initReactI18next).init({
     ur: {
       translation: {
         header: {
-          home: "بيت",
+          home: "الرئيسية",
           services: "خدمات",
           prebooking: "رحلات الحجز المسبق",
           tourism: "جولات سياحية",
@@ -534,7 +534,7 @@ i18n.use(initReactI18next).init({
             "ميدان الإتقان، طريق المدينة المنورة - ص.ب. 23215 المملكة العربية السعودية",
           phone: "",
           email: "",
-          home: "بيت",
+          home: "الرئيسية",
           services: "خدمات",
           prebooking: "رحلات الحجز المسبق",
           tourism: "جولات سياحية",
