@@ -1,0 +1,25 @@
+name: Mirror to clouders
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to clouders
+        run: |
+          git config --global user.name "clouders-sync-bot"
+          git config --global user.email "clouders-sync-bot@users.noreply.github.com"
+
+          git remote add mirror https://clouders-sync-bot:${{ secrets.CLOUDERS_SYNC_TOKEN }}@github.com/ACCOUNT_Y/REPO_Y.git
+
+          git push mirror --all
+          git push mirror --tags
