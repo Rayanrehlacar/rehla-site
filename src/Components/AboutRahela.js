@@ -58,7 +58,7 @@ function AboutRahela() {
                )}
             </div>
          </div>
-         <div class="about_inner ptb100">
+         {/* <div class="about_inner ptb100">
             <div class="container">
                <div class="sec_head">
                   <h4>{t('heroSection.AboutReh')}</h4>
@@ -97,8 +97,8 @@ function AboutRahela() {
                   </div>
                )}
             </div>
-         </div>
-         <div class="about_inner ptb100">
+         </div> */}
+         {/* <div class="about_inner ptb100">
             <div class="container">
                <div class="sec_head">
                   <h4>{t('heroSection.AboutReh')}</h4>
@@ -135,7 +135,7 @@ function AboutRahela() {
                   </div>
                )}
             </div>
-         </div>
+         </div> */}
       </section>
     </>
   )

@@ -20,8 +20,7 @@ function AppScreenshots() {
             <section className="screenshot ptb100">
                 <div className="container">
                     <div className="sec_head">
-                        <h2> <span>{t('heroSection.Rehla')}</span>{t('heroSection.screenShot')}</h2>
-                        <p>An enim nullam tempor gravida donec enim <br /> congue magnasus varius blandit sit amet non magna.</p>
+                        <h2> <span>{t('heroSection.Rehla')}</span>{" "}{t('heroSection.screenShot')}</h2>
                     </div>
                     <div className="screen_owl owl-carousel owl-theme pt60">
                         <Swiper

@@ -14,7 +14,7 @@ function Services() {
          <div class="container">
             <div class="sec_head">
                <h2> <span>{t('rehlaServiceSection.rehlaServiceTitle')} </span> {t('rehlaServiceSection.rehlaSer')}</h2>
-               <p>Fully layered dolor sit amet, nobis id expedita <br/> dolores officiis laboriosam.</p>
+               {/* <p>Fully layered dolor sit amet, nobis id expedita <br/> dolores officiis laboriosam.</p> */}
             </div>
             <div class="service_inner pt60">
                <div class="service_box">

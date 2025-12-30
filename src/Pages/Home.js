@@ -24,13 +24,13 @@ function Home() {
         <Herosection/>
         <Partner/>
         <Services/>
-        <Offer/>
+        {/* <Offer/> */}
         <AboutRahela/>
         <Steps/>
         <FeatureCourses/>
         <AppScreenshots/>
         <Counter/>
-        <Testimonial/>
+        {/* <Testimonial/> */}
         <AppStore/>
         <Footer/>
     </>

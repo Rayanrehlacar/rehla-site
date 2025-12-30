@@ -11,7 +11,7 @@ function Steps() {
   return (
     <>
          <section class="traveler coming">
-         <div class="about_inner ptb100">
+         {/* <div class="about_inner ptb100">
             <div class="container">
                <div class="sec_head">
                   <h2> {t('heroSection.join')}<br/> <span>{t('heroSection.Rehla')}</span>{t('heroSection.Traveler')}</h2>
@@ -45,15 +45,15 @@ function Steps() {
                   </div>
                </div>
             </div>
-         </div>
+         </div> */}
          <div class="about_inner ptb100">
             <div class="container">
                <div class="sec_head">
-                  <h2> {t('heroSection.book')} <br/><span>{t('heroSection.Rehla')} </span>{t('heroSection.trip')} </h2>
+                  <h2> {t('heroSection.book')} {t('heroSection.trip')} </h2>
                   <div class="img_list">
-                     <img src="../../images/phone.webp" alt="img"/>
-                     <img src="../../images/phone.webp" alt="img"/>
-                     <img src="../../images/phone.webp" alt="img"/>
+                     <img src="../../images/LoginPage.png" alt="img"/>
+                     <img src="../../images/MainPage.png" alt="img"/>
+                     <img src="../../images/DestenationPage.png" alt="img"/>
                   </div>
                </div>
                <div class="about_img">
@@ -81,7 +81,7 @@ function Steps() {
                </div>
             </div>
          </div>
-         <div class="about_inner ptb100">
+         {/* <div class="about_inner ptb100">
           <div class="container">
                <div class="sec_head">
                   <h2> {t('heroSection.join')}<br/> <span>{t('heroSection.Rehla')}</span>{t('heroSection.Traveler')}</h2>
@@ -115,7 +115,7 @@ function Steps() {
                   </div>
                </div>
             </div>
-         </div>
+         </div> */}
       </section>
     </>
   )

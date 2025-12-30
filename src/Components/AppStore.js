@@ -14,7 +14,7 @@ function AppStore() {
          <div class="container">
             <div class="sec_head">
                   <h2> {t('AboutUspage.availablDevices')}</h2>
-                  <p> {t('AboutUspage.avaiDes')}<br/> {t('AboutUspage.avaiDes1')}</p>
+                  <p> {t('AboutUspage.avaiDes')}</p>
                </div>
                <div class="app_store">
                   <a href="https://play.google.com/store/apps/details?id=com.NativeTech.rehla&hl=en&pli=1"><img src="../../images/App-Store.webp"/> </a>

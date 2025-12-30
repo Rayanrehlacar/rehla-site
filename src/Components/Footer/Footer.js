@@ -28,7 +28,8 @@ function Footer() {
           <div class="footer_grid">
             <div class="footer_logo">
               <a href="index.html" target="_blank"> <img src="images/footer_logo.webp" alt="Company Logo" /> </a>
-              <p>{t('footer.description1')}<br /> {t('footer.description2')}  <br /> {t('footer.description3')} <br /> {t('footer.description4')}.</p>
+              <br></br><br></br><br></br><br></br><br></br><br></br>
+              {/* <p>{t('footer.description1')}<br /> {t('footer.description2')}  <br /> {t('footer.description3')} <br /> {t('footer.description4')}.</p> */}
 
               <ul class="social_links">
                 <li>
@@ -68,16 +69,14 @@ function Footer() {
             <div className="footer_menu">
               <h4>{t('footer.contactInfo')}</h4>
               <ul className="footer_links">
-                <li><a href="https://www.google.com/maps/search/455+West+Orchard+Street+Kings+Mountain,+NC+280867/@37.442407,-122.170830,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTExMi4wIKXMDSoASAFQAw%3D%3D">{t('footer.address')}</a></li>
-                {/* <li><a href="tel:+088(246)6422710">{t('footer.phone')}</a></li>
-                <li><a href="mailto:example@gmail.com">{t('footer.email')}</a></li> */} 
+                <li><a href="https://www.google.com/maps/search/455+West+Orchard+Street+Kings+Mountain,+NC+280867/@37.442407,-122.170830,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTExMi4wIKXMDSoASAFQAw%3D%3D">{t('footer.address1')}<br></br>{t('footer.address2')}</a></li>
+                <li><a href="tel:+088(246)6422710">{t('footer.phone')}</a></li>
+                <li><a href="mailto:example@gmail.com">{t('footer.email')}</a></li>
               </ul>
             </div>
           </div>
           <div class="copyright">
-            <p> © <span id="year"></span> {t('footer.copyright')}
-              <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script></p>
-
+            <p>© {t('footer.copyright')}{" "}{new Date().getFullYear()}</p>
           </div>
         </div>
         <div class="whts_icon">

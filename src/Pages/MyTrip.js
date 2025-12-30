@@ -82,8 +82,8 @@ function MyTrip() {
                         <div 
                            className="trip_box enhanced_trip_box" 
                            key={index}
-                           // onClick={() => navigate(`/trip-details/${item?.Id}`, { state: { tripData: item } })}
-                           // style={{ cursor: 'pointer' }}
+                           onClick={() => navigate(`/trip-details/${item?.Id}`, { state: { tripData: item } })}
+                           style={{ cursor: 'pointer' }}
                         >
                            <div className="trip_head">
                               <img src="images/my_trip/car.png" alt="car" />

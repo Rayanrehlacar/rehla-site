@@ -31,7 +31,7 @@ function TourismTours() {
         <div className="container">
           <div className="banner_head">
             <h1>{t('tourismTour.tourismTitle')}</h1>
-            <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo congue purus pretium ligula </p>
+            {/* <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo congue purus pretium ligula </p> */}
           </div>
           <div className="bredcrub">
             <a href="index.html" target="_self"> {t('header.home')} </a>
@@ -42,8 +42,8 @@ function TourismTours() {
       <section className="our_team gallery_team tourism_tours ptb100">
         <div className="container">
           <div className="sec_head">
-            <h2><span>{t('tourismTour.rehlaTourism')}</span> {t('tourismTour.tourismTitle')}</h2>
-            <p>Fully layered dolor sit amet, nobis id expedita <br /> dolores officiis laboriosam.</p>
+            <h2 style={{ color: '#4FA8DA' }}>{t('tourismTour.tourismTitleErr')}</h2>
+            <p>{t('tourismTour.tourismTitleErr2')} <br /> {t('tourismTour.tourismTitleErr3')}</p>
           </div>
           <div className="team_inner tourism_inner pt60">
             {tours.map((tour, key) => (

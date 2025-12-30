@@ -14,8 +14,7 @@ function FeatureCourses() {
          <div class="container">
             <div class="sec_head">
                   <h4>{t('heroSection.Featuredcoures')}</h4>
-                  <h2>{t('heroSection.Charge')}<span> {t('heroSection.Rehla')}</span></h2>
-                  <p>An enim nullam tempor sapien gravida donec enim <br/> ipsum porta justo integer at odio velna vitae auctor <br/> integer.</p>
+                  <h2>{t('heroSection.Charge')}</h2>
                </div>
             <div class="card_inner pt60">
                <div class="card_box">

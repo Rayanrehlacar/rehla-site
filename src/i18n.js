@@ -15,8 +15,8 @@ i18n.use(initReactI18next).init({
           tourism: "Tourism Tours",
           sendParcel: "Send Parcels",
           news: "News",
-          aboutus: "AboutUs",
-          contactus: "ContactUs",
+          aboutus: "About Us",
+          contactus: "Contact Us",
           languageSwitch: "عربي",
           editProfile: "Edit Profile", // Added
           myTrips: "My Trips", // Added
@@ -112,7 +112,7 @@ i18n.use(initReactI18next).init({
           startTrip: "Start Your ride Now",
           offerUp: "Offer up to 30% for each ride",
 
-          Signup: "Sign up",
+          Signup: "Sign up ",
           addingcar: "in Rehla and adding car",
           Trainingvideo:
             "Training video explaining how to create an account in Rehla, fill in the registration data, and view the login method if you already have an account in Rehla. How to register your car information to be reviewed and registered in Rehla application as a captain, as you can know your balance through the wallet.Watch",
@@ -148,6 +148,7 @@ i18n.use(initReactI18next).init({
           Chargewallet: "Charge wallet",
 
           screenShot: "screenshots",
+          screenshotDesc:"Explore Rehla's user-friendly interface and discover how easy it is to book rides, manage trips, and travel smarter.",
 
           clentSay: "What clients are saying",
         },
@@ -156,18 +157,18 @@ i18n.use(initReactI18next).init({
           rehlaSer: "Services",
           rehlaServiceDescriptions:
             "Fully layered dolor sit amet, nobis id expedita dolores officiis laboriosam",
-          serviceTitle1: "I'm going to",
+          serviceTitle1: "Ride Hailing",
           serviceDescription1:
-            "Passengers order a ride with a local driver to go to another place inside the city Ride-hailing.",
+            "Passengers can request a ride with a nearby driver to reach their destination quickly and safely within the city.",
           serviceTitle2: "Prebooking trips",
           serviceDescription2:
-            "Passengers can make a prebooking trip order with a local driver to go to any place.",
+            "Plan ahead by booking trips in advance. Choose your destination and travel date, then wait for a captain to accept your request.",
           serviceTitle3: "Tourism Tours",
           serviceDescription3:
-            "Tourism expert creates a tour of the tourist cities and is searched for by regions.",
+            "Tourism experts can create customized tours for tourist destinations. Travelers can browse tours by region and book unique travel experiences.",
           serviceTitle4: "Sending Parcels",
           serviceDescription4:
-            "Sender offers a parcel to deliver between cities and wait for Rehla captain to accept it.",
+            "Send parcels between cities easily. Post your delivery request and wait for a Rehla captain to accept and deliver your package securely.",
         },
 
         //Pre-BookingTrips page
@@ -198,6 +199,9 @@ i18n.use(initReactI18next).init({
         //TourismTour Page
         tourismTour: {
           tourismTitle: "Tourism Tours",
+          tourismTitleErr: "Tourism Tours Currently Unavailable",
+          tourismTitleErr2: "We are currently working on developing and enhancing our Tourism Tours service to deliver a high-quality experience.",
+          tourismTitleErr3: "The service will be available soon. Stay tuned for updates.",
           rehlaTourism: "Rehla",
         },
 
@@ -235,9 +239,7 @@ i18n.use(initReactI18next).init({
 
           availablDevices: "Rehla is available for all devices",
           avaiDes:
-            "A Private Limited is the most popular type of partnership Malta. The limited",
-          avaiDes1:
-            "liabilityis, in fact, the only type of the company allowed by Companies.",
+            "Enjoy smart, affordable, and safe travel across cities",
         },
 
         //ContactUsPage
@@ -257,9 +259,10 @@ i18n.use(initReactI18next).init({
           sitemap: "Site map",
           usefulLinks: "Useful links",
           contactInfo: "Contact Info",
-          address: "Itqan Square, Madinah Road- P.O 23215 Kingdom of Saudi Arabia",
-          phone: "",
-          email: "",
+          address1: "Itqan Square, Madinah Road- P.O 23215",
+          address2: "Kingdom of Saudi Arabia",
+          phone: "920011455",
+          email: "care@rehlacar.com",
           home: "Home",
           services: "Services",
           prebooking: "Prebooking Trips",
@@ -269,7 +272,7 @@ i18n.use(initReactI18next).init({
           terms: "Terms of Use",
           privacy: "Privacy Policy",
           faq: "Frequently Asked",
-          copyright: "Rehla All Rights Reserved.",
+          copyright: "All Rights Reserved",
         },
       },
     },
@@ -280,17 +283,18 @@ i18n.use(initReactI18next).init({
         header: {
           home: "الرئيسية",
           services: "خدمات",
-          prebooking: "رحلات الحجز المسبق",
+          prebooking: "الحجز المسبق",
           tourism: "جولات سياحية",
+          sendParcel: "إرسال الطرود",
           news: "أخبار",
-          aboutus: "معلومات عنا",
+          aboutus: "من نحن؟",
           contactus: "اتصل بنا",
           languageSwitch: "عربي",
           editProfile: "تحرير الملف الشخصي", // Added
           myTrips: "رحلاتي", // Added
           myReservation: "حجزي", // Added
           myWallet: "محفظتي", // Added
-          mySendParcel: "میرا پارسل بھیجیں۔", // Added
+          mySendParcel: "الطرود المرسلة", // Added
           myRates: "أسعاري", // Added
           myPreferences: "تفضيلاتي", // Added
           verification: "تَحَقّق", // Added
@@ -367,13 +371,13 @@ i18n.use(initReactI18next).init({
 
         //home
         heroSection: {
-          heroTitle: "تطبيق رحلة هو أفضل تطبيق لحجز الرحلات ومشاركة الرحلات",
+          heroTitle: "تطبيق رحلة أفضل تطبيق لحجز الرحلات ومشاركة الرحلات",
           heroDescription:
-            "رحلة هي خدمة مشاركة الرحلات وخدمة نقل الركاب التي تربط بين الركاب وأصحاب المركبات المتجهين إلى نفس الوجهة.",
+            "رحلة هي خدمة مشاركة الرحلات وخدمة نقل الركاب التي تربط بين الركاب وأصحاب المركبات المتجهين إلى نفس الوجهة",
 
           AboutReh: "حول رحلة",
           Rehla: "رحلة",
-          RehlaIntro: "إدخال ترويج الفيديو",
+          RehlaIntro: "تعريف",
           RehDes:
             "تطبيق رحلة .... متعة السفر بين المدن بأقل تكلفة وأمان أكثر يقدم موقع رحلة تجربة سفر فريدة بين المدن بأقل تكلفة وبأكثر الطرق متعة وأمان. تطبيق رحلة مرخص من هيئة النقل العام ومتوافق مع كافة متطلبات السلامة والأمن في المملكة العربية السعودية، ويقوم على مبدأ تقاسم تكاليف السفر بين الركاب وأصحاب المركبات.",
           startTrip: "ابدأ رحلتك الآن",
@@ -390,7 +394,7 @@ i18n.use(initReactI18next).init({
 
           join: "انضم إلى خبراء السياحة ك",
           Traveler: "مسافر",
-          Rehla: "رحلة", //////////////////pen
+          Rehla: " رحلة ", //////////////////pen
 
           firstStep: "الخطوة الأولى",
           secondStep: "الخطوة الثانية",
@@ -400,7 +404,7 @@ i18n.use(initReactI18next).init({
           second: "املأ نموذج المعلومات السياحية الخاص بك",
           third: "بعد مراجعة بياناتنا، ستتمكن من إنشاء جولات",
 
-          book: "احجز حجزك المسبق",
+          book: "احجز حجزك المسبق في",
           trip: "رحلة الآن",
           login:
             "قم بتسجيل الدخول بحسابك الخاص برحلة أو قم بإنشاء حساب لأول مرة عبر موقعنا أو تطبيقنا",
@@ -408,12 +412,13 @@ i18n.use(initReactI18next).init({
           select:
             "حدد وجهتك وتاريخ المغادرة واحجز الآن وانتظر حتى يتم قبول عرضك من قبل أحد الكباتن لدينا",
 
-          Featuredcoures: "دورات مميزة",
-          Charge: "اشحن بطاقات رحلة الآن",
+          Featuredcoures: "شحن المحفظة",
+          Charge: "اشحن محفظتك عن طريق بطاقات رحلة الآن",
           price: "سعر",
           Chargewallet: "شحن المحفظة",
 
-          screenShot: "لقطات الشاشة",
+          screenShot: "لقطات الشاشة لتطبيق",
+          screenshotDesc:"استكشف واجهة رحلة سهلة الاستخدام وتعرّف على مدى سهولة حجز الرحلات، إدارة المشاوير، والسفر بذكاء أكثر.",
 
           clentSay: "ما يقوله العملاء",
         },
@@ -422,18 +427,18 @@ i18n.use(initReactI18next).init({
           rehlaSer: "خدمات",
           rehlaServiceDescriptions:
             "آلام الجلوس ذات الطبقات الكاملة، nobis id expedita dolores officiis Laboriosam",
-          serviceTitle1: "انا ذاهب ل",
+          serviceTitle1: "التنقل داخل المدينة",
           serviceDescription1:
-            "يطلب الركاب رحلة مع سائق محلي للذهاب إلى مكان آخر داخل المدينة",
+            "يمكن للركّاب طلب مشوار مع أقرب كابتن للوصول إلى وجهتهم داخل المدينة بسرعة وسهولة وبأعلى معايير السلامة.",
           serviceTitle2: "رحلات الحجز المسبق",
           serviceDescription2:
-            "يمكن للمسافرين إجراء حجز مسبق لرحلة مع سائق محلي للذهاب إلى أي مكان.",
+            "خطّط رحلتك مسبقًا عبر حجز المشوار قبل موعده. اختر وجهتك وتاريخ السفر وانتظر قبول الطلب من أحد كباتن رحلة.",
           serviceTitle3: "جولات سياحية",
           serviceDescription3:
-            "يقوم خبير السياحة بعمل جولة في المدن السياحية ويتم البحث عنها حسب المناطق.",
+            "يتيح تطبيق رحلة للخبراء السياحيين إنشاء جولات مخصّصة للمدن والمناطق السياحية، مع إمكانية استعراض الجولات حسب المنطقة وحجز تجارب سفر مميّزة.",
           serviceTitle4: "إرسال الطرود",
           serviceDescription4:
-            "يعرض المرسل طرداً للتوصيل بين المدن وينتظر كابتن رحلة ليقبله.",
+            "أرسل الطرود بين المدن بكل سهولة. قدّم طلب التوصيل وانتظر قبول المهمة من أحد كباتن رحلة لتصل شحنتك بأمان.",
 
           AboutReh: "ریحلا کے بارے میں",
           Rehla: "ریحلہ",
@@ -482,7 +487,10 @@ i18n.use(initReactI18next).init({
 
         //TourismTour Page
         tourismTour: {
-          tourismTitle: "جولات سياحية",
+          tourismTitle: "الجولات السياحية",
+          tourismTitleErr: "الجولات السياحية غير متوفرة حاليًا",
+          tourismTitleErr2: "نحن نعمل حالياً على تطوير وتحسين خدمة الجولات السياحية لتقديم تجربة مميزة تلبي تطلعاتكم.",
+          tourismTitleErr3: "سيتم إتاحة الخدمة قريباً، تابعونا لمعرفة آخر التحديثات.",
           rehlaTourism: "رحلة",
         },
 
@@ -507,9 +515,7 @@ i18n.use(initReactI18next).init({
 
           availablDevices: "رحلة متاحة لجميع الأجهزة",
           avaiDes:
-            "تعتبر الشراكة الخاصة المحدودة هي النوع الأكثر شيوعًا من الشراكة في مالطا. المحدودة",
-          avaiDes1:
-            " المسؤولية هي في الواقع النوع الوحيد من الشركات الذي تسمح به الشركات",
+            "استمتع بسفر ذكي، اقتصادي، وآمن بين المدن",
         },
 
         //ContactUsPage
@@ -530,10 +536,10 @@ i18n.use(initReactI18next).init({
           sitemap: "خريطة الموقع",
           usefulLinks: "روابط مفيدة",
           contactInfo: "معلومات الاتصال",
-          address:
-            "ميدان الإتقان، طريق المدينة المنورة - ص.ب. 23215 المملكة العربية السعودية",
-          phone: "",
-          email: "",
+          address1:"ميدان الإتقان، طريق المدينة المنورة - ص.ب. 23215 ",
+          address2:"المملكة العربية السعودية",
+          phone: "920011455",
+          email: "care@rehlacar.com",
           home: "الرئيسية",
           services: "خدمات",
           prebooking: "رحلات الحجز المسبق",

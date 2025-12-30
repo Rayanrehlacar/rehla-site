@@ -11,28 +11,28 @@ function Counter() {
             <div class="counter_box">
                <img src="../../images/icon.webp" alt="icon"/>
                <div class="counter_details">
-                  <h3><div class="counter-value" data-count="28">0</div>K</h3>
+                  <h3><div class="counter-value" data-count="28">450</div>K</h3>
                   <p>Users</p>
                </div>
             </div>
             <div class="counter_box">
                <img src="../../images/icon1.webp" alt="icon"/>
                <div class="counter_details">
-                   <h3><div class="counter-value" data-count="13">0</div>K</h3>
+                   <h3><div class="counter-value" data-count="13">1</div>M</h3>
                   <p>Download</p>
                </div>
             </div>
             <div class="counter_box">
                <img src="../../images/icon2.webp" alt="icon"/>
                <div class="counter_details">
-                  <h3><div class="counter-value" data-count="68">0</div>K</h3>
+                  <h3><div class="counter-value" data-count="68">70</div>K</h3>
                   <p>Likes</p>
                </div>
             </div>
             <div class="counter_box">
                <img src="../../images/icon3.webp" alt="icon"/>
                <div class="counter_details">
-                  <h3><div class="counter-value" data-count="10">0</div>K</h3>
+                  <h3><div class="counter-value" data-count="10">5.0</div></h3>
                   <p>5 Star Rating</p>
                </div>
             </div>
