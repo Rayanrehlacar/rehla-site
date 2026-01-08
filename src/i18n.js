@@ -187,6 +187,7 @@ i18n.use(initReactI18next).init({
           coupon: "Coupon",
           Description: "Notes",
           preBookingNow: "Prebooking Now",
+          Cash: "Cash",
         },
 
         //BookTour page
@@ -292,10 +293,10 @@ i18n.use(initReactI18next).init({
           languageSwitch: "عربي",
           editProfile: "تحرير الملف الشخصي", // Added
           myTrips: "رحلاتي", // Added
-          myReservation: "حجزي", // Added
+          myReservation: "حجوزاتي", // Added
           myWallet: "محفظتي", // Added
           mySendParcel: "الطرود المرسلة", // Added
-          myRates: "أسعاري", // Added
+          myRates: "تقييماتي", // Added
           myPreferences: "تفضيلاتي", // Added
           verification: "تَحَقّق", // Added
           notification: "إشعار", // Added
@@ -463,19 +464,20 @@ i18n.use(initReactI18next).init({
           coupon: "قسيمة",
           Description: "ملحوظات",
           preBookingNow: "الحجز المسبق الآن",
+          Cash: "نقدي",
         },
 
         sendParcel: {
-          SourceCity: "بھیجنے والے کا مقام",
-          DestinationCity: "وصول کنندہ کا مقام",
-          SenderPhone: "بھیجنے والا فون",
-          SenderName: "بھیجنے والے کا نام",
-          SenderId: "بھیجنے والے کی شناخت",
-          ReceiverPhone: "وصول کنندہ فون",
-          ReceiverName: "Receiver name",
-          ReceiverId: "وصول کنندہ کا نام",
-          Notes: "نوٹس",
-          preBookingNow: "الحجز المسبق الآن",
+          SourceCity: "موقع المرسل",
+          DestinationCity: "موقع المستلم",
+          SenderPhone: "رقم هاتف المرسل",
+          SenderName: "اسم المرسل",
+          SenderId: "هوية المرسل",
+          ReceiverPhone: "رقم هاتف المستلم",
+          ReceiverName: "اسم المستلم",
+          ReceiverId: "هوية المستلم",
+          Notes: "ملاحظات",
+          preBookingNow: "إرسال الطرد الآن",
       },
 
        //bookTour page

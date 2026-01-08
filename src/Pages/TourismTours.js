@@ -45,17 +45,17 @@ function TourismTours() {
             <h2 style={{ color: '#4FA8DA' }}>{t('tourismTour.tourismTitleErr')}</h2>
             <p>{t('tourismTour.tourismTitleErr2')} <br /> {t('tourismTour.tourismTitleErr3')}</p>
           </div>
-          <div className="team_inner tourism_inner pt60">
+          {/* <div className="team_inner tourism_inner pt60">
             {tours.map((tour, key) => (
               <div className="card_box" key={key} onClick={() => navigate(`/city-tour?TA=${tour.Id}&Name=${encodeURIComponent(
-        tour.Name)}&Page=0`)}>
+                tour.Name)}&Page=0`)}>
                 <img src={tour?.Image} alt={tour?.Name} />
                 <div className="card_details">
                   <h3>{i18n.language === 'ur' ? tour?.NameLT : tour?.Name}</h3>
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
       <Footer />

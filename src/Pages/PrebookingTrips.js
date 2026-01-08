@@ -227,9 +227,7 @@ function PrebookingTrips() {
                                  <label for="PaymentType">{t('preBookingtrips.paymentType')}</label>
                                  <select id="PaymentType" onChange={handleChange} value={values?.PaymentType} >
                                     <option value="">Please Select Payment type</option>
-                                    <option value="true">Credit Card</option>
-                                    <option value="true">Debit Card</option>
-                                    <option value="true">PayPal</option>
+                                    <option value="true">{t('preBookingtrips.Cash')}</option>
                                  </select>
                                  <LocalError touched={touched.PaymentType} error={errors.PaymentType} />
 
