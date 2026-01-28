@@ -127,7 +127,7 @@ function PrebookingTrips() {
             <div class="container">
                <div class="banner_head">
                   <h1>{t('header.prebooking')} </h1>
-                  <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo  congue purus pretium ligula </p>
+                  {/* <p>An enim nullam tempor sapien gravida donec enim ipsum <br /> porta justo  congue purus pretium ligula </p> */}
                </div>
                <div class="bredcrub">
                   <a href="index.html" target="_self"> {t('header.home')} </a><span> <img src="images/arrow.png" alt="arrow" /></span>
