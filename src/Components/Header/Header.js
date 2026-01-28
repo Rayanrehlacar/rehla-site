@@ -149,9 +149,9 @@ function Header() {
               <li>
                 <Link to="/news">{t("header.news")}</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/about-us">{t("header.aboutus")}</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/contact-us">{t("header.contactus")}</Link>
               </li>

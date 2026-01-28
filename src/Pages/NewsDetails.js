@@ -179,12 +179,12 @@ function NewsDetails() {
         <section className="banners" style={{backgroundImage: `url(${'../../images/banners_bg.webp'})`}}>
       <div className="container">
          <div className="banner_head">
-            <h1>News Details</h1>
-            <p>An enim nullam tempor sapien gravida donec enim ipsum <br/> porta justo  congue purus pretium ligula </p>
+            <h1>News</h1>
+            {/* <p>An enim nullam tempor sapien gravida donec enim ipsum <br/> porta justo  congue purus pretium ligula </p> */}
          </div>
          <div className="bredcrub">
             <a href="index.html" target="_self"> Home </a><span> <img src="images/arrow.png" alt="arrow"/></span> 
-            <p>News Details </p>
+            <p>News</p>
          </div>
       </div>
    </section>
@@ -201,7 +201,7 @@ function NewsDetails() {
                   </button>
                </div>
             </form>
-            <div className="categories">
+            {/* <div className="categories">
                <h3>Blog Categories</h3>
                <ul>
                   <li><a href="javascript:void(0);">Development <span className="count">(15)</span></a></li>
@@ -209,7 +209,7 @@ function NewsDetails() {
                   <li><a href="javascript:void(0);">Cyber Security <span className="count">(20)</span></a></li>
                   <li><a href="javascript:void(0);">Virtual Assistant <span className="count">((07)</span></a></li>
                </ul>
-            </div>
+            </div> */}
             <div className="recent">
                <h3>Recent News</h3>
                {renderAdvertiseListItems()} 

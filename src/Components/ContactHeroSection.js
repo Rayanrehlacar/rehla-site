@@ -14,7 +14,7 @@ function ContactHeroSection() {
 		<div class="container">
 			<div class="banner_head">
 				<h1>{t('header.contactus')}</h1>
-				<p>An enim nullam tempor sapien gravida donec enim ipsum <br/> porta justo  congue purus pretium ligula </p>
+				{/* <p>An enim nullam tempor sapien gravida donec enim ipsum <br/> porta justo  congue purus pretium ligula </p> */}
 			</div>
 			<div class="bredcrub">
 				<a href="index.html" target="_self"> Home </a><span>{">"}</span> <p>Contact </p>
