@@ -69,13 +69,13 @@ function TripDetails() {
          <section className="banners" style={{ backgroundImage: `url(${'../../images/banners_bg.webp'})` }}>
             <div className="container">
                <div className="banner_head">
-                  <h1>{t('header.tripDetails') || 'Trip Details'}</h1>
+                  <h1>{t('header.tripDetails')}</h1>
                   <p>View complete information about your trip</p>
                </div>
                <div className="bredcrub">
                   <a href="index.html" target="_self">{t('header.home')}</a><span> <img src="images/arrow.png" alt="arrow" /></span>
                   <button onClick={() => navigate('/my-trip')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', padding: 0, font: 'inherit' }}>{t('header.myTrips')}</button><span> <img src="images/arrow.png" alt="arrow" /></span>
-                  <p>{t('header.tripDetails') || 'Trip Details'}</p>
+                  <p>{t('header.tripDetails')}</p>
                </div>
             </div>
          </section>
@@ -93,7 +93,7 @@ function TripDetails() {
                      <div className="info_card">
                         <div className="info_card_title">Trip Status</div>
                         <Tag color={getStatusColor(tripData?.PrebookingAdvanceStatusId)} className="status_tag" style={{ marginTop: '8px', display: 'inline-block' }}>
-                           {tripData?.PrebookingAdvanceStatusName || 'Pending'}
+                           {tripData?.PrebookingAdvanceStatusName}
                         </Tag>
                      </div>
                      <div className="info_card">
