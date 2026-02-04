@@ -3250,7 +3250,7 @@ form.varification_form {
   content: "activation";
   width: fit-content;
   text-align: end;
-  background-image: url();
+  background-image: none;
   display: block;
   padding: 8px 16px;
   border-radius: 100px;
